@@ -8,10 +8,12 @@ export type PricingPlanCard = {
   price: string;
   features: string[];
   highlighted?: boolean;
-  /** Nút chính trên thẻ. Mặc định: "Nhận kiểm tra Google + review miễn phí". */
+  /** Nút chính trên thẻ. */
   ctaLabel?: string;
-  /** Link phụ dưới nút chính (chỉ trang bảng giá). */
+  /** Link phụ dưới nút chính (trang bảng giá). */
   secondaryCtaLabel?: string;
+  /** Dòng nhỏ dưới nút (không phải link) — vd. điều kiện trial voice. */
+  footnote?: string;
 };
 
 export type PricingBlockContent = {
@@ -25,6 +27,13 @@ export const CAPTURED_CALL_DEFINITION =
   'Captured call (cuộc gọi được tính) theo chuẩn RingBooker: cuộc gọi mà AI tương tác thành công với khách và bắt được thông tin hữu ích (tên, số điện thoại, dịch vụ, giờ mong muốn, yêu cầu gọi lại, đặt/đổi/hủy lịch…). Không tính spam, cuộc gọi quá ngắn, chuyển tiếp thất bại, cuộc demo/test, hoặc cuộc kết thúc trước khi AI kịp phản hồi.';
 
 export const PRICING_NOTE = 'Thử 1 tháng, huỷ bất cứ lúc nào.';
+/** Khung dùng thử riêng gói nghe máy. */
+export const VOICE_TRIAL_NOTE = 'Dùng thử miễn phí 14 ngày.';
+export const VOICE_TRIAL_HINT = 'Miễn phí 14 ngày, không cần thẻ để bắt đầu';
+
+export const CTA_TRIAL_MONTH = 'Đăng ký thử 1 tháng';
+export const CTA_VOICE_TRIAL = 'Dùng thử 14 ngày miễn phí';
+export const CTA_BUNDLE = 'Liên hệ báo giá';
 
 export const PLAN_REVIEW = {
   id: 'review',
@@ -54,6 +63,11 @@ export const PLAN_VOICE = {
   ],
 } as const;
 
+const VOICE_TIER_CTA = {
+  ctaLabel: CTA_VOICE_TRIAL,
+  footnote: VOICE_TRIAL_HINT,
+} as const;
+
 export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
   {
     name: 'Starter',
@@ -65,6 +79,7 @@ export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
       'Anh & Tây Ban Nha theo cấu hình (không phải tiếng Việt — AI nói với khách)',
     ],
+    ...VOICE_TIER_CTA,
   },
   {
     name: 'Pro',
@@ -76,6 +91,7 @@ export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
       'Anh & Tây Ban Nha theo cấu hình (không phải tiếng Việt — AI nói với khách)',
     ],
+    ...VOICE_TIER_CTA,
   },
   {
     name: 'Custom',
@@ -87,6 +103,7 @@ export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
       'Anh & Tây Ban Nha theo cấu hình (không phải tiếng Việt — AI nói với khách)',
     ],
+    ...VOICE_TIER_CTA,
   },
 ];
 
@@ -149,6 +166,7 @@ function toCard(
     highlighted?: boolean;
     ctaLabel?: string;
     secondaryCtaLabel?: string;
+    footnote?: string;
   },
 ): PricingPlanCard {
   return {
@@ -158,12 +176,22 @@ function toCard(
     highlighted: plan.highlighted,
     ctaLabel: plan.ctaLabel,
     secondaryCtaLabel: plan.secondaryCtaLabel,
+    footnote: plan.footnote,
   };
 }
 
 const BANG_GIA_TRIAL_CTA = {
-  ctaLabel: 'Đăng ký thử 1 tháng',
+  ctaLabel: CTA_TRIAL_MONTH,
   secondaryCtaLabel: 'Nhận kiểm tra Google + review của tiệm miễn phí trước.',
+} as const;
+
+const BANG_GIA_VOICE_CTA = {
+  ctaLabel: CTA_VOICE_TRIAL,
+  footnote: VOICE_TRIAL_HINT,
+} as const;
+
+const SERVICE_TRIAL_CTA = {
+  ctaLabel: CTA_TRIAL_MONTH,
 } as const;
 
 /** Trang /bang-gia — đủ các gói. */
@@ -171,40 +199,43 @@ export const BANG_GIA_PRICING: PricingBlockContent = {
   heading: 'Chọn phần tiệm đang cần nhất',
   plans: [
     toCard({ ...PLAN_REVIEW, ...BANG_GIA_TRIAL_CTA }),
-    toCard({ ...PLAN_VOICE, ...BANG_GIA_TRIAL_CTA }),
+    toCard({ ...PLAN_VOICE, ...BANG_GIA_VOICE_CTA }),
     toCard({ ...PLAN_INBOX, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_WEBSITE_BASIC, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_WEBSITE_GROWTH, highlighted: false, ...BANG_GIA_TRIAL_CTA }),
     toCard({
       ...PLAN_BUNDLE,
-      ctaLabel: 'Liên hệ báo giá',
+      ctaLabel: CTA_BUNDLE,
       secondaryCtaLabel: 'Nhận kiểm tra Google + review của tiệm miễn phí trước.',
     }),
   ],
-  note: PRICING_NOTE,
+  note: `${PRICING_NOTE} Gói nghe máy: ${VOICE_TRIAL_NOTE}`,
 };
 
 /** Block giá trên từng trang dịch vụ. */
 export const SERVICE_PRICING = {
   review: {
     heading: 'Gói Review',
-    plans: [toCard(PLAN_REVIEW)],
+    plans: [toCard({ ...PLAN_REVIEW, ...SERVICE_TRIAL_CTA })],
     note: PRICING_NOTE,
   } satisfies PricingBlockContent,
   voice: {
     heading: 'Gói nghe máy & đặt lịch',
     plans: PLAN_VOICE_TIERS,
-    note: PRICING_NOTE,
+    note: VOICE_TRIAL_NOTE,
   } satisfies PricingBlockContent,
   inbox: {
     heading: 'Gói tin nhắn Facebook & Instagram',
-    plans: [toCard(PLAN_INBOX)],
+    plans: [toCard({ ...PLAN_INBOX, ...SERVICE_TRIAL_CTA })],
     note: PRICING_NOTE,
   } satisfies PricingBlockContent,
   website: {
     heading: 'Website + duy trì',
-    plans: [toCard(PLAN_WEBSITE_BASIC), toCard(PLAN_WEBSITE_GROWTH)],
-    note: 'Kỳ vọng thật: SEO cần duy trì để giữ top — không hứa top 1 tuyệt đối.',
+    plans: [
+      toCard({ ...PLAN_WEBSITE_BASIC, ...SERVICE_TRIAL_CTA }),
+      toCard({ ...PLAN_WEBSITE_GROWTH, ...SERVICE_TRIAL_CTA }),
+    ],
+    note: `${PRICING_NOTE} Kỳ vọng thật: SEO cần duy trì để giữ top — không hứa top 1 tuyệt đối.`,
   } satisfies PricingBlockContent,
 } as const;
 

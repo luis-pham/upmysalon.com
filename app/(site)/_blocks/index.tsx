@@ -227,6 +227,7 @@ export function PricingBlock({
     highlighted?: boolean;
     ctaLabel?: string;
     secondaryCtaLabel?: string;
+    footnote?: string;
   }[];
   note?: string;
 }) {
@@ -269,8 +270,11 @@ export function PricingBlock({
                 href="/lien-he"
                 className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white"
               >
-                {plan.ctaLabel ?? 'Nhận kiểm tra Google + review miễn phí'}
+                {plan.ctaLabel ?? 'Đăng ký thử 1 tháng'}
               </Link>
+              {plan.footnote ? (
+                <p className="mt-3 text-center text-sm text-black/45">{plan.footnote}</p>
+              ) : null}
               {plan.secondaryCtaLabel ? (
                 <p className="mt-3 text-center text-sm text-black/45">
                   <Link href="/lien-he" className="underline-offset-2 transition hover:text-roseNude hover:underline">

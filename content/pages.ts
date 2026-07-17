@@ -25,7 +25,7 @@ export const ngheMay = {
     heading: 'Mỗi cuộc gọi nhỡ là một khách mất đi',
     subheading:
       'Lễ Tân AI của UpMySalon được thiết kế riêng để trả lời điện thoại cho tiệm nail. Dựa trên kinh nghiệm và sự hiểu biết về nghề nail, nó hiểu dịch vụ (full set, gel, bột, pedicure…), hiểu khách walk-in, và trả lời tự nhiên như lễ tân người thật — chào khách, báo giá, đặt lịch — ngay cả khi cả tiệm đang bận tay.',
-    ctaLabel: 'Dùng thử AI bắt máy cho tiệm anh/chị',
+    ctaLabel: 'Nghe thử demo ngay',
     image: '/hero/ai_phone.jpg',
     imageAlt: 'AI nghe điện thoại và đặt lịch cho tiệm nail',
   },
@@ -72,7 +72,7 @@ export const ngheMay = {
     items: [
       {
         icon: 'Phone',
-        feature: 'Bắt máy 24/7 theo gói (Starter 100 / Pro 200 captured calls)',
+        feature: 'Bắt máy 24/7',
         benefit:
           'Không bỏ lỡ khách, kể cả ngoài giờ. Chỉ tính captured call theo chuẩn RingBooker — không tính spam, cuộc quá ngắn hay chuyển tiếp thất bại.',
       },
@@ -184,7 +184,7 @@ export const danhGiaGoogle = {
     heading: 'Lên sao, lên khách — UpMySalon lo phần review cho tiệm.',
     subheading:
       'Điểm sao cao kéo khách mới. Hệ thống tự động xin đánh giá sau mỗi lượt khách và trả lời review bằng tiếng Anh chuyên nghiệp — đều đặn, không sót review nào. Gặp review xấu, đội ngũ người Việt của UpMySalon bàn với anh/chị (bằng tiếng Việt) cách xử lý khéo léo.',
-    ctaLabel: 'Nhận kiểm tra Google + review miễn phí',
+    ctaLabel: 'Kiểm tra Google + review miễn phí',
     image: '/hero/review.jpg',
     imageAlt: 'Tăng và quản lý đánh giá Google 5 sao cho tiệm nail',
   },
@@ -266,7 +266,7 @@ export const tinNhan = {
     heading: 'Khách nhắn tin là được trả lời ngay — kể cả khi tiệm đang đông.',
     subheading:
       'Phần mềm AI quản lý inbox Facebook & Instagram: trả lời câu hỏi giá/giờ, chốt lịch tự động, và chuyển cho người thật khi cần.',
-    ctaLabel: 'Nhận tư vấn quản lý tin nhắn FB/IG miễn phí',
+    ctaLabel: 'Nhận tư vấn miễn phí',
     image: '/hero/ig.jpg',
     imageAlt: 'Trả lời tin nhắn Facebook và Instagram cho tiệm nail',
   },
@@ -345,7 +345,7 @@ export const websiteSeo = {
     heading: 'Website đẹp + lên top Google — khách tìm là thấy tiệm anh/chị.',
     subheading:
       'UpMySalon tạo mới hoặc làm lại website cho tiệm, tối ưu SEO và đưa tiệm lên Google Maps.',
-    ctaLabel: 'Nhận kiểm tra website + Google Maps miễn phí',
+    ctaLabel: 'Kiểm tra website + Google Maps miễn phí',
     image: '/hero/map.jpg',
     imageAlt: 'Website chuẩn SEO và Google Maps cho tiệm nail',
   },

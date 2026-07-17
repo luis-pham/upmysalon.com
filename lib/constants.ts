@@ -12,10 +12,10 @@ export const CTA_TEXT_SHORT = 'Kiểm tra tiệm miễn phí';
 /** Sticky mobile CTA label — follows each page’s primary CTA (hero.ctaLabel). */
 export const STICKY_CTA_BY_PATH: Record<string, string> = {
   '/': CTA_TEXT_SHORT,
-  '/le-tan-ai-nghe-may-dat-lich': 'Dùng thử AI bắt máy cho tiệm anh/chị',
-  '/danh-gia-google': CTA_TEXT_SHORT,
-  '/ai-quan-ly-inbox-facebook-ig': 'Nhận tư vấn quản lý tin nhắn FB/IG miễn phí',
-  '/website-seo': 'Nhận kiểm tra website + Google Maps miễn phí',
+  '/le-tan-ai-nghe-may-dat-lich': 'Nghe thử demo ngay',
+  '/danh-gia-google': 'Kiểm tra Google + review miễn phí',
+  '/ai-quan-ly-inbox-facebook-ig': 'Nhận tư vấn miễn phí',
+  '/website-seo': 'Kiểm tra website + Google Maps miễn phí',
   '/bang-gia': CTA_TEXT_SHORT,
   '/gioi-thieu': CTA_TEXT_SHORT,
   '/blog': CTA_TEXT_SHORT,
