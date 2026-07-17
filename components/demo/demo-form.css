@@ -1,0 +1,167 @@
+/* Service picker — layout from RingBooker vd-tabs / vd-svc-*; accent = UpMySalon rose. */
+.ums-demo-form {
+  --va: #c98f9e;
+}
+
+.ums-demo-form .vd-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .ums-demo-form .vd-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ums-demo-form .vd-field-compact label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #443a38;
+}
+
+.ums-demo-form .vd-field-compact input {
+  width: 100%;
+  border: 1px solid rgba(68, 58, 56, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 249, 246, 0.7);
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #443a38;
+  outline: none;
+}
+
+.ums-demo-form .vd-field-compact input:focus {
+  border-color: color-mix(in srgb, var(--va) 55%, #e5e7eb);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--va) 22%, transparent);
+}
+
+.ums-demo-form .vd-field-compact input:disabled {
+  opacity: 0.6;
+}
+
+.ums-demo-form .vd-svc-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #665a56;
+  margin: 4px 0 8px;
+}
+
+.ums-demo-form .vd-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.ums-demo-form .vd-tab {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #665a56;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.ums-demo-form .vd-tab:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--va) 45%, #e5e7eb);
+  color: #443a38;
+}
+
+.ums-demo-form .vd-tab.on {
+  background: var(--va);
+  border-color: var(--va);
+  color: #fff;
+}
+
+.ums-demo-form .vd-tab:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ums-demo-form .vd-svc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ums-demo-form .vd-svc-row {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.ums-demo-form .vd-svc-row input[type='checkbox'] {
+  accent-color: var(--va);
+  width: 16px;
+  height: 16px;
+}
+
+.ums-demo-form .vd-svc-info {
+  min-width: 0;
+}
+
+.ums-demo-form .vd-svc-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.ums-demo-form .vd-svc-name.is-off {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.ums-demo-form .vd-svc-dur {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 1px;
+}
+
+.ums-demo-form .vd-svc-price-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.ums-demo-form .vd-svc-price-wrap.is-off {
+  opacity: 0.4;
+}
+
+.ums-demo-form .vd-svc-price-wrap > span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.ums-demo-form .vd-svc-price {
+  width: 72px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  padding: 7px 8px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  color: #443a38;
+  background: #fff;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ums-demo-form .vd-svc-price:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--va) 55%, #e5e7eb);
+}
