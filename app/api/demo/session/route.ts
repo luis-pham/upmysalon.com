@@ -62,6 +62,12 @@ export async function POST(request: Request) {
 
   try {
     const { status, body: upstream } = await callRingbookerDemo('', payload);
+    if (status === 403) {
+      console.error('[demo/session] RingBooker 403', {
+        code: upstream.code,
+        message: upstream.message,
+      });
+    }
     return NextResponse.json(upstream, { status });
   } catch (error) {
     const missing = error instanceof Error && error.message.startsWith('missing_env:');

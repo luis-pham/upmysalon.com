@@ -15,13 +15,18 @@ export function getRingbookerSessionUrl(): string {
   return requireEnv('RINGBOOKER_DEMO_SESSION_URL').replace(/\/$/, '');
 }
 
+/** Bare origin only (scheme + host), matching RingBooker DEMO_PARTNER_ORIGINS. */
 export function getPartnerOrigin(): string {
-  return (
+  const raw =
     process.env.DEMO_PARTNER_ORIGIN?.trim() ||
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
     process.env.NEXT_PUBLIC_SERVER_URL?.trim() ||
-    'https://upmysalon.com'
-  );
+    'https://upmysalon.com';
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return 'https://upmysalon.com';
+  }
 }
 
 export type RingbookerProxyResult = {
@@ -42,6 +47,7 @@ export async function callRingbookerDemo(
     headers: {
       'Content-Type': 'application/json',
       Origin: origin,
+      Referer: `${origin}/`,
       'X-Demo-Partner-Key': partnerKey,
     },
     body: JSON.stringify(body),
@@ -49,5 +55,14 @@ export async function callRingbookerDemo(
   });
 
   const json = (await res.json().catch(() => ({}))) as Record<string, unknown>;
+  if (!res.ok) {
+    console.error('[demo/ringbooker]', {
+      status: res.status,
+      code: json.code,
+      origin,
+      keyLen: partnerKey.length,
+      url,
+    });
+  }
   return { status: res.status, body: json };
 }
