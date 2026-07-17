@@ -26,7 +26,7 @@ export type PricingBlockContent = {
 export const CAPTURED_CALL_DEFINITION =
   'Captured call (cuộc gọi được tính) theo chuẩn RingBooker: cuộc gọi mà AI tương tác thành công với khách và bắt được thông tin hữu ích (tên, số điện thoại, dịch vụ, giờ mong muốn, yêu cầu gọi lại, đặt/đổi/hủy lịch…). Không tính spam, cuộc gọi quá ngắn, chuyển tiếp thất bại, cuộc demo/test, hoặc cuộc kết thúc trước khi AI kịp phản hồi.';
 
-export const PRICING_NOTE = 'Thử 1 tháng, huỷ bất cứ lúc nào.';
+export const PRICING_NOTE = 'Dùng thử miễn phí 1 tháng, huỷ bất cứ lúc nào.';
 /** Khung dùng thử riêng gói nghe máy. */
 export const VOICE_TRIAL_NOTE = 'Dùng thử miễn phí 14 ngày.';
 export const VOICE_TRIAL_HINT = 'Miễn phí 14 ngày, không cần thẻ để bắt đầu';
@@ -235,7 +235,7 @@ export const SERVICE_PRICING = {
       toCard({ ...PLAN_WEBSITE_BASIC, ...SERVICE_TRIAL_CTA }),
       toCard({ ...PLAN_WEBSITE_GROWTH, ...SERVICE_TRIAL_CTA }),
     ],
-    note: `${PRICING_NOTE} Kỳ vọng thật: SEO cần duy trì để giữ top — không hứa top 1 tuyệt đối.`,
+    note: PRICING_NOTE,
   } satisfies PricingBlockContent,
 } as const;
 

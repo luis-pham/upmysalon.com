@@ -109,11 +109,8 @@ export default function HomePage() {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-black/68 sm:text-xl sm:leading-9">
               UpMySalon lo trọn gói cho tiệm: nghe máy giúp khi anh/chị đang bận làm khách, ngoài giờ, xin và trả lời review 5 sao, quản lý tin nhắn Facebook & Instagram, tạo mới hoặc thiết kế lại website đẹp, chuẩn SEO, và đưa tiệm lên top Google Maps. Tất cả bằng tiếng Việt, không hợp đồng dài.
             </p>
-            <div className="mt-8 flex flex-col items-start gap-4">
+            <div className="mt-8">
               <PrimaryCTA className="w-full sm:w-auto" />
-              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-black/58">
-                <span>Người Việt phục vụ người Việt</span><span>·</span><span>Không ràng buộc</span><span>·</span><span>Thử 1 tháng</span>
-              </p>
             </div>
           </div>
 

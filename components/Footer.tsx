@@ -84,7 +84,7 @@ export function Footer() {
               <img src="/brand/logo-white.svg" alt="UpMySalon" className="h-10 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs leading-7 text-white/45">
-              Dịch vụ dành cho chủ tiệm nail người Việt tại Mỹ.
+              Dịch vụ AI và Marketing giúp tăng trưởng cho tiệm Nail người Việt tại Mỹ.
             </p>
             <div className="mt-5 flex items-center gap-3">
               {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (

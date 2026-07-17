@@ -364,10 +364,6 @@ export function DemoCallBlock() {
                   )}
                 </button>
 
-                <p className="text-sm leading-6 text-white/55">
-                  Không cần số điện thoại — và không có gì được đặt thật.
-                </p>
-
                 {inAppHint && !error && (
                   <p className="rounded-xl border border-goldSoft/40 bg-goldSoft/15 px-3 py-2 text-sm leading-6 text-cream/90">
                     {inAppHint}
