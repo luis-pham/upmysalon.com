@@ -5,7 +5,7 @@ import { buildMetadata } from '@/lib/content';
 import { faqPageJsonLd } from '@/lib/seo/jsonld';
 
 const homeSeo = {
-  title: 'UpMySalon — Giúp tiệm nail đông khách hơn',
+  title: 'Dịch vụ AI & marketing cho tiệm nail Việt | UpMySalon',
   description:
     'Đội ngũ người Việt giúp tiệm nail ở Mỹ đông khách hơn: nghe máy, review 5 sao, tin nhắn FB/IG, website & Google Maps. Nói tiếng Việt, không hợp đồng dài.',
 };

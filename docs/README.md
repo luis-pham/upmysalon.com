@@ -10,22 +10,23 @@ Một website marketing đa trang cho **UpMySalon** (dịch vụ số cho chủ 
 
 - **Next.js** (App Router, TypeScript) — cả site lẫn admin chung một app.
 - **Payload CMS 3.0** — nhúng trong Next.js, cung cấp admin tại `/admin`.
-- **Database:** Supabase **Postgres** (qua Payload postgres adapter / `@payloadcms/db-postgres`).
-- **Media/ảnh:** Supabase **Storage** (qua storage adapter). R2 là lựa chọn thay thế nếu muốn.
-- **Hosting:** Vercel.
+- **Database:** Supabase **Postgres** (qua Payload postgres adapter / `@payloadcms/db-postgres`). Project/schema **riêng** khỏi RingBooker.
+- **Media/ảnh:** Cloudflare **R2** (S3-compatible qua `@payloadcms/storage-s3`).
+- **Hosting:** Vercel + domain Namecheap.
 - **Styling:** Tailwind CSS (tokens lấy từ **home live** — xem `04-design-system.md`).
-- **Hiện trạng repo:** `landing/` là **Next.js App Router (TypeScript)**. Nội dung đọc qua `lib/content.ts` (seed từ `content/pages.ts`). Payload/Supabase chờ env (`01`–`03`).
+- **Hiện trạng repo:** `landing/` là **Next.js App Router (TypeScript)**. Nội dung đọc qua `lib/content.ts` (seed từ `content/pages.ts`). Payload / Supabase / R2 chờ env (`01`–`03`, deploy `06`).
 
 ## Cấu trúc bộ docs
 
 | File | Nội dung |
 |---|---|
 | `README.md` | Tổng quan, thứ tự build, scope guards (file này) |
-| `01-setup.md` | Cài Payload + kết nối Supabase Postgres + Storage + env |
+| `01-setup.md` | Cài Payload + Supabase Postgres + Cloudflare R2 + env |
 | `02-content-model.md` | Collections, Globals, Blocks, SEO plugin |
 | `03-frontend-and-seo.md` | Routing, render blocks, metadata, JSON-LD, sitemap/robots, ISR |
 | `04-design-system.md` | Brand tokens, components, responsive + accessibility |
 | `05-pages.md` | Spec + copy tiếng Việt từng trang, mapping field CMS |
+| `06-deploy.md` | Deploy Vercel + domain + Supabase production + R2 + SEO ban đầu |
 | `08-service-detail.md` | Bổ sung effortContrast / featureBenefit / monthlyValue / monthlyReport |
 
 ## Sitemap (các trang)
@@ -44,12 +45,12 @@ Một website marketing đa trang cho **UpMySalon** (dịch vụ số cho chủ 
 
 ## Thứ tự triển khai (build order)
 
-1. **Setup** (`01`): dựng Next.js + Payload + kết nối Supabase, chạy được `/admin`.
+1. **Setup** (`01`): dựng Next.js + Payload + Supabase Postgres + R2, chạy được `/admin`.
 2. **Content model** (`02`): khai báo collections/globals/blocks + SEO plugin, seed dữ liệu mẫu.
 3. **Design system** (`04`): tokens + components dùng chung (nav, footer, button, card).
 4. **Frontend + SEO** (`03`): render trang từ CMS, metadata động, JSON-LD, sitemap/robots.
 5. **Pages** (`05`): dựng từng trang theo spec, nhập copy tiếng Việt vào CMS.
-6. Deploy Vercel + kiểm tra SEO (xem checklist cuối `03`).
+6. **Deploy** (`06`): Vercel + domain Namecheap + Supabase production + R2 + SEO ban đầu (checklist `03`).
 
 ## Quy tắc & scope guards (đọc kỹ)
 

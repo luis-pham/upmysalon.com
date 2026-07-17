@@ -34,4 +34,4 @@ GTM chỉ load khi `NEXT_PUBLIC_GTM_ID` có giá trị (mọi trang qua root lay
 
 ## Next steps
 
-Wire Payload + Supabase per `docs/01-setup.md` → `02` → `03`. Only `lib/content.ts` needs to change for CMS.
+Wire Payload + Supabase + Cloudflare R2 per `docs/01-setup.md` → `02` → `03`, then production deploy `docs/06-deploy.md`. Only `lib/content.ts` needs to change for CMS.

@@ -49,7 +49,7 @@ Routes (không dùng `[slug]` marketing):
 - EN: `/en/privacy`, `/en/terms`, `/en/sms-consent`, `/en/refund`
 
 ### 4. `media`
-- Upload collection, storage adapter Supabase Storage.
+- Upload collection, storage adapter **Cloudflare R2** (S3-compatible — xem `01-setup.md`, production `06-deploy.md`).
 - Bắt buộc field `alt` (text) cho SEO + accessibility.
 - Image sizes: `thumbnail` (~400w), `card` (~800w), `hero` (~1600w), `og` (1200x630).
 

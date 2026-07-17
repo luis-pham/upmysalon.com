@@ -17,7 +17,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'UpMySalon — Giúp tiệm nail đông khách hơn',
+    default: 'Dịch vụ AI & marketing cho tiệm nail Việt | UpMySalon',
     template: '%s | UpMySalon',
   },
   description:

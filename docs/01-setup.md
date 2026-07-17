@@ -1,30 +1,36 @@
-# 01 — Setup: Payload 3.0 + Supabase
+# 01 — Setup: Payload 3.0 + Supabase + R2
 
-Mục tiêu: có một app Next.js chạy được, Payload admin tại `/admin`, dữ liệu lưu trong Supabase Postgres, ảnh trong Supabase Storage.
+Mục tiêu: có một app Next.js chạy được, Payload admin tại `/admin`, dữ liệu lưu trong Supabase Postgres, ảnh trên Cloudflare R2 (S3-compatible). Deploy production xem `06-deploy.md`.
 
 ## 1. Khởi tạo dự án
 
 - Dùng Next.js App Router + TypeScript. **Đã migrate xong từ Vite SPA** (bước 07): App Router, `lib/content.ts`, blocks server/client, home giữ nguyên.
-- Cài Payload 3.0 và các package: core Payload, `@payloadcms/next`, `@payloadcms/db-postgres`, `@payloadcms/richtext-lexical`, `@payloadcms/plugin-seo`, và storage adapter cho Supabase Storage (S3-compatible: `@payloadcms/storage-s3`).
+- Cài Payload 3.0 và các package: core Payload, `@payloadcms/next`, `@payloadcms/db-postgres`, `@payloadcms/richtext-lexical`, `@payloadcms/plugin-seo`, và `@payloadcms/storage-s3` (trỏ Cloudflare R2).
 - Payload 3 tích hợp vào Next App Router: admin phục vụ tại route `/admin`, API tại `/api`.
-- **Chưa làm:** cắm Payload + Supabase (cần env). Khi có env, đổi thân `lib/content.ts` sang Payload Local API — không phải sửa UI.
+- **Chưa làm:** cắm Payload + Supabase + R2 (cần env). Khi có env, đổi thân `lib/content.ts` sang Payload Local API — không phải sửa UI.
 
 ## 2. Kết nối Supabase Postgres
 
 - Dùng **Postgres adapter** của Payload, truyền connection string của Supabase.
-- Lấy connection string trong Supabase → Project Settings → Database. **Dùng connection pooler** (cổng 6543, chế độ transaction) cho môi trường serverless/Vercel; dùng direct connection (5432) cho migrations.
+- Lấy connection string trong Supabase → Project Settings → Database.
+  - **Pooler** (cổng `6543`, transaction mode) → runtime serverless / Vercel → `DATABASE_URI`.
+  - **Direct** (cổng `5432`) → migrations → `DATABASE_URI_DIRECT` (xem `06-deploy.md`).
 - Bật SSL theo yêu cầu của Supabase.
-- Payload sẽ tự tạo bảng theo schema đã khai báo. **Khuyến nghị:** đặt các bảng CMS trong một **schema Postgres riêng** (ví dụ `cms`) để không lẫn với bảng ứng dụng khác trong cùng Supabase — cấu hình `schemaName` nếu adapter hỗ trợ, hoặc dùng một Supabase project riêng cho website.
+- Payload sẽ tự tạo bảng theo schema đã khai báo. **Khuyến nghị:** project Supabase **riêng** cho website (tách RingBooker), hoặc schema Postgres riêng (ví dụ `cms`) nếu buộc dùng chung project.
 - Dùng **migrations** của Payload (`payload migrate`) thay vì auto-push ở production.
 
-## 3. Media / ảnh → Supabase Storage
+## 3. Media / ảnh → Cloudflare R2
 
-- Cấu hình storage adapter S3-compatible trỏ vào Supabase Storage:
-  - Endpoint: S3 endpoint của Supabase Storage (dạng `https://<project>.supabase.co/storage/v1/s3`).
-  - Region, access key id, secret (tạo trong Supabase Storage → S3 access keys).
-  - Bucket công khai cho ảnh public (ví dụ `media`).
+- Cấu hình `@payloadcms/storage-s3` trỏ vào **Cloudflare R2**:
+  - Endpoint: `https://<accountid>.r2.cloudflarestorage.com`
+  - Region: `auto`
+  - Access Key ID + Secret (R2 API token)
+  - Bucket (ví dụ `upmysalon-media` hoặc bucket dev riêng)
+  - Public URL: `r2.dev` hoặc custom domain (vd. `cdn.upmysalon.com`) → `R2_PUBLIC_URL`
 - Gắn adapter vào collection `Media` (xem `02-content-model.md`).
 - Bật image sizes trong collection Media để Payload sinh sẵn các kích thước (thumbnail, card, hero, og) → phục vụ `next/image` + ảnh OG.
+- `next.config`: thêm host của `R2_PUBLIC_URL` vào `images.remotePatterns`.
+- Chi tiết bucket production, CORS, custom domain: `06-deploy.md`.
 
 ## 4. Admin & Auth
 
@@ -37,17 +43,21 @@ Mục tiêu: có một app Next.js chạy được, Payload admin tại `/admin`
 Khai báo (đặt trong Vercel + `.env.local`, KHÔNG commit):
 
 ```
-DATABASE_URI=            # Supabase Postgres pooler connection string
-PAYLOAD_SECRET=          # chuỗi bí mật ngẫu nhiên dài
-NEXT_PUBLIC_SERVER_URL=  # https://upmysalon.com (hoặc domain thật)
+DATABASE_URI=                 # Supabase Postgres pooler (6543)
+DATABASE_URI_DIRECT=          # optional: direct 5432 cho migrate
+PAYLOAD_SECRET=               # chuỗi bí mật ngẫu nhiên dài
+NEXT_PUBLIC_SERVER_URL=       # https://upmysalon.com (hoặc localhost khi dev)
 
-# Supabase Storage (S3-compatible)
-S3_ENDPOINT=
-S3_REGION=
-S3_ACCESS_KEY_ID=
-S3_SECRET_ACCESS_KEY=
-S3_BUCKET=media
+# Cloudflare R2 (S3-compatible)
+R2_ENDPOINT=https://<accountid>.r2.cloudflarestorage.com
+R2_ACCESS_KEY_ID=
+R2_SECRET_ACCESS_KEY=
+R2_BUCKET=
+R2_PUBLIC_URL=
+S3_REGION=auto
 ```
+
+Production + domain: xem `06-deploy.md`.
 
 ## 6. Frontend đọc dữ liệu
 
@@ -58,11 +68,11 @@ S3_BUCKET=media
 
 - `npm run dev` → mở `/admin`, đăng nhập, tạo được bản ghi thử.
 - Bản ghi lưu vào Supabase (kiểm tra bảng trong Supabase).
-- Upload một ảnh → file xuất hiện trong Supabase Storage bucket.
+- Upload một ảnh → file xuất hiện trong bucket R2; URL public load được.
 - Một trang test server-component đọc được dữ liệu qua Local API.
 
 ## Scope guards
 
 - KHÔNG dùng SQLite/Mongo — bắt buộc Supabase Postgres.
 - KHÔNG auto-push schema ở production — dùng migrations.
-- KHÔNG để bucket chứa ảnh ở chế độ private nếu ảnh cần hiển thị công khai.
+- KHÔNG để bucket/media ở chế độ private nếu ảnh cần hiển thị công khai (dùng `R2_PUBLIC_URL`).
