@@ -33,3 +33,74 @@ body {
     transform: scaleY(1);
   }
 }
+
+/* Scroll reveal — soft fade + lift */
+.ums-reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.ums-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.ums-reveal .ums-reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--ums-delay, 0ms);
+}
+
+.ums-reveal.is-visible .ums-reveal-item {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hover lift for cards / tiles (pointer devices only) */
+@media (hover: hover) and (pointer: fine) {
+  main a.rounded-3xl.border,
+  main .grid > div.rounded-3xl.border,
+  main .grid > article.rounded-3xl {
+    transition:
+      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.28s ease,
+      color 0.28s ease,
+      border-color 0.28s ease;
+  }
+
+  main a.rounded-3xl.border:hover,
+  main .grid > div.rounded-3xl.border:hover,
+  main .grid > article.rounded-3xl:hover {
+    transform: translate3d(0, -5px, 0);
+    box-shadow: var(--shadow-soft);
+  }
+
+  main a.rounded-3xl.border:active,
+  main .grid > div.rounded-3xl.border:active {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ums-reveal,
+  .ums-reveal .ums-reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  main a.rounded-3xl.border:hover,
+  main .grid > div.rounded-3xl.border:hover,
+  main .grid > article.rounded-3xl:hover {
+    transform: none;
+  }
+}

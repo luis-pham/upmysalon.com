@@ -23,6 +23,7 @@ import { PrimaryCTA, SectionTitle } from '@/components/ui';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { EffortContrastBlock } from '@/app/(site)/_blocks';
 import { HeroCarousel } from '@/components/HeroCarousel';
+import { DemoCallBlock } from '@/components/demo/DemoCallBlock';
 import { HOME_HERO_SLIDES } from '@/content/hero';
 import { HOME_PRICING_TEASERS, PRICING_NOTE } from '@/content/pricing';
 
@@ -135,6 +136,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <DemoCallBlock />
 
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

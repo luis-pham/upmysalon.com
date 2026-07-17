@@ -123,8 +123,8 @@ export const PLAN_WEBSITE_GROWTH = {
     'Mọi thứ của gói Website cơ bản',
     'Cập nhật Google Business Profile',
     'Tối ưu dịch vụ / mô tả / hình ảnh',
-    '2 nội dung ngắn mỗi tháng (website hoặc Google)',
-    'Báo cáo đơn giản (lượt tìm kiếm, cuộc gọi, chỉ đường)',
+    '2 bài viết trên website tối ưu SEO mỗi tháng',
+    'Báo cáo đầy đủ (lượt tìm kiếm, cuộc gọi, chỉ đường)',
   ],
   highlighted: true,
 } as const;
@@ -228,7 +228,7 @@ export const HOME_PRICING_TEASERS: PricingPlanCard[] = [
       'Facebook & Instagram',
       'Làm mới / thiết kế lại website theo nhu cầu',
       'Tối ưu GBP, Google Maps',
-      'Tối ưu SEO',
+      '2 bài viết trên website tối ưu SEO/tháng, báo cáo đầy đủ',
     ],
   }),
 ];

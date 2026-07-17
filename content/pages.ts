@@ -386,8 +386,8 @@ export const websiteSeo = {
       'Dựng & duy trì website',
       'Hosting, SSL, sao lưu, chỉnh nhỏ theo gói',
       'Cập nhật Google Business Profile (gói Growth)',
-      '2 nội dung ngắn/tháng (gói Growth)',
-      'Báo cáo đơn giản (gói Growth)',
+      '2 bài viết trên website tối ưu SEO/tháng (gói Growth)',
+      'Báo cáo đầy đủ (gói Growth)',
     ],
   },
   monthlyValue: {
@@ -404,7 +404,7 @@ export const websiteSeo = {
       },
       {
         title: 'Website + Google Growth — $79/tháng',
-        desc: 'Mọi thứ gói cơ bản, cộng cập nhật Google Business Profile, tối ưu dịch vụ/mô tả/ảnh, 2 nội dung ngắn/tháng, báo cáo đơn giản.',
+        desc: 'Mọi thứ gói cơ bản, cộng cập nhật Google Business Profile, tối ưu dịch vụ/mô tả/ảnh, 2 bài viết trên website tối ưu SEO/tháng, báo cáo đầy đủ.',
       },
     ],
     note: 'UpMySalon không chỉ làm web — UpMySalon vận hành web để nó kéo khách đều mỗi tháng.',
@@ -412,7 +412,7 @@ export const websiteSeo = {
   monthlyReport: {
     heading: 'Mỗi tháng anh/chị nhận báo cáo',
     items: [
-      'Nội dung ngắn đã đăng (gói Growth)',
+      'Bài viết website đã đăng (gói Growth)',
       'Cập nhật Google Business Profile (gói Growth)',
       'Lượt tìm kiếm / cuộc gọi / chỉ đường (gói Growth)',
       'Chỉnh sửa nhỏ theo yêu cầu tiệm',
