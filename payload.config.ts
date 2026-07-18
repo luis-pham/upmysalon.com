@@ -25,14 +25,38 @@ const serverURL =
   process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
   'http://localhost:3000';
 
-const databaseURI =
+const databaseURIRaw =
   process.env.DATABASE_URI?.trim() || process.env.DATABASE_URI_DIRECT?.trim() || '';
 
-if (!databaseURI) {
+if (!databaseURIRaw) {
   throw new Error(
     'Missing DATABASE_URI. Copy .env.example → .env.local and paste your Supabase Postgres connection string (Settings → Database). Do not use localhost unless you run Postgres locally.',
   );
 }
+
+/**
+ * Normalize Supabase/pg SSL query params.
+ * Newer `pg` warns that sslmode=require will change meaning; for Supabase use
+ * uselibpqcompat=true&sslmode=require (pool.ssl.rejectUnauthorized=false below).
+ */
+function normalizeDatabaseURI(uri: string): string {
+  try {
+    const url = new URL(uri);
+    const isRemote = !['localhost', '127.0.0.1'].includes(url.hostname);
+    if (!isRemote) return uri;
+    if (!url.searchParams.has('uselibpqcompat')) {
+      url.searchParams.set('uselibpqcompat', 'true');
+    }
+    if (!url.searchParams.has('sslmode') || url.searchParams.get('sslmode') === 'prefer') {
+      url.searchParams.set('sslmode', 'require');
+    }
+    return url.toString();
+  } catch {
+    return uri;
+  }
+}
+
+const databaseURI = normalizeDatabaseURI(databaseURIRaw);
 
 const r2Bucket = process.env.R2_BUCKET?.trim() || '';
 const r2Endpoint = process.env.R2_ENDPOINT?.trim() || '';
