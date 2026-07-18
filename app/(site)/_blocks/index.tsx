@@ -224,6 +224,7 @@ export function PricingBlock({
   plans: {
     name: string;
     price: string;
+    description?: string;
     features: string[];
     highlighted?: boolean;
     ctaLabel?: string;
@@ -258,6 +259,9 @@ export function PricingBlock({
                 </span>
               )}
               <h3 className="text-2xl font-semibold">{plan.name}</h3>
+              {plan.description ? (
+                <p className="mt-2 text-sm leading-6 text-black/62">{plan.description}</p>
+              ) : null}
               <p className="mt-4 text-2xl font-semibold text-roseNude">{plan.price}</p>
               <ul className="mt-6 space-y-4">
                 {plan.features.map((feature) => (

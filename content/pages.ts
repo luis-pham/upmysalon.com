@@ -3,6 +3,7 @@
 import {
   BANG_GIA_PRICING,
   CAPTURED_CALL_FAQ,
+  PLAN_LOCAL_SEO,
   PLAN_WEBSITE_BASIC,
   PLAN_WEBSITE_GROWTH,
   SERVICE_PRICING,
@@ -340,15 +341,15 @@ export const tinNhan = {
 export const websiteSeo = {
   slug: 'website-seo',
   seo: {
-    title: 'Làm website tiệm nail chuẩn SEO + lên Google Maps',
+    title: 'Website & Local SEO cho tiệm nail — làm web hoặc chỉ tăng Google',
     description:
-      "Dịch vụ tạo mới hoặc làm lại website cho tiệm, tối ưu SEO, đưa tiệm lên top Google Maps để khách tìm 'nail near me' thấy anh/chị trước.",
+      'Làm website mới, hoặc chỉ Local SEO / Google Growth nếu tiệm đã có web. Kiểm tra website + Google Maps miễn phí — sau audit gợi ý gói phù hợp.',
   },
   hero: {
     eyebrow: 'Website & SEO',
     heading: 'Website đẹp + lên top Google — khách tìm là thấy tiệm anh/chị.',
     subheading:
-      'UpMySalon tạo mới hoặc làm lại website cho tiệm, tối ưu SEO và đưa tiệm lên Google Maps.',
+      'Cần làm web mới, chỉ tăng SEO/Maps, hay cả hai — đều có gói riêng. Nhận kiểm tra website + Google Maps miễn phí; sau audit UpMySalon gợi ý rõ, thường là Local SEO / Google Growth nếu tiệm đã có web.',
     ctaLabel: 'Kiểm tra website + Google Maps miễn phí',
     image: '/hero/map.jpg',
     imageAlt: 'Website chuẩn SEO và Google Maps cho tiệm nail',
@@ -363,77 +364,122 @@ export const websiteSeo = {
     ],
   },
   proof: {
-    heading: 'Website + Maps đi cùng nhau',
+    heading: '3 gói tách bạch — chọn đúng nhu cầu tiệm',
     items: [
-      { title: 'Đẹp trên điện thoại', text: 'Khách Mỹ hay xem trên phone — site phải rõ dịch vụ và nút gọi/đặt lịch.' },
-      { title: 'Chuẩn SEO local', text: 'Hỗ trợ tín hiệu để Google hiểu tiệm và khu vực.' },
-      { title: 'Google Maps mạnh', text: 'Hồ sơ đầy đủ, ảnh, giờ, review — dễ được chọn hơn.' },
+      {
+        title: 'Website (làm web)',
+        text: 'Tiệm chưa có web hoặc cần làm lại — dựng site chuẩn, đẹp trên điện thoại. Chưa gồm SEO/Maps hàng tháng.',
+      },
+      {
+        title: 'Local SEO / Google Growth',
+        text: 'Tiệm ĐÃ CÓ website — chỉ tăng SEO + lên Google. KHÔNG bắt buộc làm web mới.',
+      },
+      {
+        title: 'Website + Growth',
+        text: 'Cần cả hai: làm website và chạy Local SEO/Google Growth cùng lúc.',
+      },
     ],
   },
   steps: {
     heading: 'Cách hoạt động',
     items: [
-      { number: '1', title: 'Dựng website', desc: 'UpMySalon dựng website chuẩn, đẹp trên điện thoại.' },
-      { number: '2', title: 'SEO + Maps', desc: 'Tối ưu SEO và hồ sơ Google Maps.' },
-      { number: '3', title: 'Duy trì', desc: 'Duy trì để giữ thứ hạng — SEO không phải làm một lần là xong.' },
+      {
+        number: '1',
+        title: 'Kiểm tra miễn phí',
+        desc: 'Audit website + Google Maps — nói thẳng tiệm đang thiếu gì.',
+      },
+      {
+        number: '2',
+        title: 'Gợi ý đúng gói',
+        desc: 'Đã có web → thường gợi ý Local SEO / Google Growth. Cần web mới → Website hoặc Website + Growth.',
+      },
+      {
+        number: '3',
+        title: 'Làm đều mỗi tháng',
+        desc: 'SEO và Maps cần duy trì — không phải làm một lần là xong.',
+      },
     ],
   },
 
   effortContrast: {
-    heading: 'Anh/chị làm rất ít — UpMySalon vận hành web mỗi tháng',
+    heading: 'Anh/chị làm rất ít — UpMySalon lo phần online',
     youLabel: 'Anh/chị làm (một lần)',
     weLabel: 'Công việc của UpMySalon',
     youDo: [
       'Gửi ảnh tiệm + thông tin cơ bản (một lần)',
+      'Cho quyền Google Business Profile nếu chạy Local SEO',
     ],
     weDo: [
-      'Dựng & duy trì website',
-      'Hosting, SSL, sao lưu, chỉnh nhỏ theo gói',
-      'Cập nhật Google Business Profile (gói Growth)',
-      '2 bài viết trên website tối ưu SEO/tháng (gói Growth)',
-      'Báo cáo đầy đủ (gói Growth)',
+      'Dựng & duy trì website (nếu chọn gói làm web)',
+      'Audit + tối ưu Google Business Profile / Maps',
+      'Đăng bài Google + chăm Maps (gói Local SEO / Growth)',
+      '2 bài viết SEO/tháng (đăng web tiệm hoặc soạn để tiệm đăng)',
+      'Báo cáo tháng',
     ],
   },
   monthlyValue: {
     heading: 'Phí một lần vs phí tháng — việc nào đáng tiền hàng tháng',
-    intro: 'Website không phải làm xong rồi bỏ. UpMySalon vận hành web để nó kéo khách đều.',
+    intro:
+      'Website và SEO không phải làm xong rồi bỏ. Ba gói tách bạch: làm web · chỉ Local SEO · hoặc cả hai.',
     oneTime: {
-      label: `Setup website — ${PLAN_WEBSITE_BASIC.price.split(' + ')[0]} (cơ bản) hoặc ${PLAN_WEBSITE_GROWTH.price.split(' + ')[0]} (Growth)`,
-      desc: 'Tạo mới hoặc làm lại website chuẩn SEO (tối đa 5 trang). Gói Growth thêm tối ưu Google Business Profile từ đầu.',
+      label: `Thiết lập — Website ${PLAN_WEBSITE_BASIC.price.split(' + ')[0]} · Local SEO ${PLAN_LOCAL_SEO.price.split(' + ')[0]} · Website + Growth ${PLAN_WEBSITE_GROWTH.price.split(' + ')[0]}`,
+      desc: 'Setup website khi cần làm web mới. Local SEO chỉ $99 thiết lập — không bắt buộc dựng web mới nếu tiệm đã có sẵn.',
     },
     monthly: [
       {
-        title: 'Website cơ bản — $39/tháng',
-        desc: 'Hosting + SSL + sao lưu + theo dõi hoạt động; thay giờ/số/giá cơ bản; tối đa 30 phút chỉnh nhỏ/tháng.',
+        title: 'Website (làm web) — $39/tháng',
+        desc: 'Hosting + SSL + sao lưu + theo dõi; thay giờ/số/giá cơ bản; tối đa 30 phút chỉnh nhỏ/tháng.',
       },
       {
-        title: 'Website + Google Growth — $79/tháng',
-        desc: 'Mọi thứ gói cơ bản, cộng cập nhật Google Business Profile, tối ưu dịch vụ/mô tả/ảnh, 2 bài viết trên website tối ưu SEO/tháng, báo cáo đầy đủ.',
+        title: 'Local SEO / Google Growth — $59/tháng',
+        desc: 'Đã có web: quản lý GBP, đăng bài Google + chăm Maps, 2 bài SEO/tháng, báo cáo. Không cần làm web mới.',
+      },
+      {
+        title: 'Website + Growth — $79/tháng',
+        desc: 'Gói gộp: duy trì website + toàn bộ Local SEO / Google Growth.',
       },
     ],
-    note: 'UpMySalon không chỉ làm web — UpMySalon vận hành web để nó kéo khách đều mỗi tháng.',
+    note: 'Sau kiểm tra miễn phí, UpMySalon gợi ý gói phù hợp — nhiều tiệm đã có web chỉ cần Local SEO / Google Growth.',
   },
   monthlyReport: {
     heading: 'Mỗi tháng anh/chị nhận báo cáo',
     items: [
-      'Bài viết website đã đăng (gói Growth)',
-      'Cập nhật Google Business Profile (gói Growth)',
-      'Lượt tìm kiếm / cuộc gọi / chỉ đường (gói Growth)',
-      'Chỉnh sửa nhỏ theo yêu cầu tiệm',
+      'Bài viết SEO đã đăng / soạn (gói Local SEO hoặc Website + Growth)',
+      'Cập nhật Google Business Profile & Maps',
+      'Lượt tìm kiếm / cuộc gọi / chỉ đường (gói SEO/Growth)',
+      'Chỉnh sửa nhỏ theo yêu cầu tiệm (gói có website)',
     ],
   },
   pricing: SERVICE_PRICING.website,
   faq: {
     heading: 'Câu hỏi thường gặp',
     items: [
-      { q: 'Bao lâu có website?', a: 'Thường trong 1–2 ngày làm việc. Tùy phạm vi; UpMySalon báo timeline rõ sau khi xem hiện trạng tiệm.' },
-      { q: 'Có giữ được tên miền/hồ sơ cũ không?', a: 'Có. Giữ tên miền và hồ sơ Google hiện có khi chuyển.' },
-      { q: 'SEO bao lâu lên top?', a: 'SEO cần thời gian và duy trì để giữ hạng — không phải làm một lần lên top mãi. UpMySalon làm đều mỗi tháng để tiệm giữ và tăng hạng. Không hứa top 1 tuyệt đối.' },
+      {
+        q: 'Tiệm đã có website rồi có bắt buộc làm web mới không?',
+        a: 'Không. Chọn gói Local SEO / Google Growth — chỉ tăng SEO + Google Maps. Growth không bắt buộc làm website mới.',
+      },
+      {
+        q: 'Kiểm tra website + Google Maps miễn phí rồi sao?',
+        a: 'UpMySalon gửi kết quả audit rõ ràng và gợi ý gói phù hợp. Nếu web đã ổn, thường gợi ý Local SEO / Google Growth thay vì làm web mới.',
+      },
+      {
+        q: 'Bao lâu có website?',
+        a: 'Thường trong 1–2 ngày làm việc nếu chọn gói làm web. Tùy phạm vi; UpMySalon báo timeline rõ sau khi xem hiện trạng tiệm.',
+      },
+      {
+        q: 'Có giữ được tên miền/hồ sơ cũ không?',
+        a: 'Có. Giữ tên miền và hồ sơ Google hiện có khi chuyển hoặc khi chỉ chạy Local SEO trên web sẵn có.',
+      },
+      {
+        q: 'SEO bao lâu lên top?',
+        a: 'SEO cần thời gian và duy trì để giữ hạng — không phải làm một lần lên top mãi. UpMySalon làm đều mỗi tháng để tiệm giữ và tăng hạng. Không hứa top 1 tuyệt đối.',
+      },
     ],
   },
   ctaBanner: {
     heading: 'Nhận kiểm tra website + Google Maps miễn phí',
-    subheading: 'UpMySalon nói thẳng tiệm đang thiếu gì — không ép mua.',
+    subheading:
+      'Audit xong UpMySalon nói thẳng tiệm thiếu gì và gợi ý gói — thường là Local SEO / Google Growth nếu đã có website. Không ép làm web mới.',
   },
 };
 

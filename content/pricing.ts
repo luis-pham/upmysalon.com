@@ -6,6 +6,8 @@
 export type PricingPlanCard = {
   name: string;
   price: string;
+  /** Dòng mô tả ngắn dưới tên gói (tuỳ chọn). */
+  description?: string;
   features: string[];
   highlighted?: boolean;
   /** Nút chính trên thẻ. */
@@ -120,23 +122,42 @@ export const PLAN_INBOX = {
 
 export const PLAN_WEBSITE_BASIC = {
   id: 'website-basic',
-  name: 'Website cơ bản',
+  name: 'Website (làm web)',
   price: '$399 phí thiết lập + $39/tháng',
+  description: 'Dành cho tiệm cần website mới hoặc làm lại — chưa gồm SEO/Maps hàng tháng.',
   features: [
     'Website mới hoặc làm lại, chuẩn SEO, tối đa 5 trang',
     'Kèm 1 domain .com (nếu tiệm chưa có)',
     'Duy trì: hosting + SSL + sao lưu + theo dõi hoạt động',
     'Thay giờ/số/giá cơ bản + tối đa 30 phút chỉnh nhỏ/tháng',
-    'Không gồm: viết bài, thiết kế lại, chụp/chỉnh ảnh, SEO nội dung hàng tháng, quản trị Maps chủ động',
+    'Không gồm: viết bài, SEO nội dung hàng tháng, quản trị Maps chủ động',
+  ],
+} as const;
+
+/** Tiệm đã có website — chỉ tăng SEO + Google. Không bắt buộc làm web mới. */
+export const PLAN_LOCAL_SEO = {
+  id: 'local-seo',
+  name: 'Local SEO / Google Growth',
+  price: '$99 thiết lập + $59/tháng',
+  description:
+    'Dành cho tiệm ĐÃ CÓ website — chỉ cần tăng SEO + lên Google. KHÔNG cần làm web mới.',
+  features: [
+    'Kiểm tra (audit) website + Google Maps',
+    'Quản lý & tối ưu Google Business Profile',
+    'Đăng bài Google + chăm Maps',
+    '2 bài viết SEO/tháng (đăng lên web của tiệm, hoặc UpMySalon soạn nội dung để tiệm đăng nếu web không do UpMySalon quản)',
+    'Báo cáo tháng',
   ],
 } as const;
 
 export const PLAN_WEBSITE_GROWTH = {
   id: 'website-growth',
-  name: 'Website + Google Growth',
+  name: 'Website + Growth',
   price: '$499 phí thiết lập + $79/tháng',
+  description:
+    'Gói gộp cả hai: làm website + Local SEO/Google Growth. Growth riêng không bắt buộc làm web mới.',
   features: [
-    'Mọi thứ của gói Website cơ bản',
+    'Mọi thứ của gói Website (làm web)',
     'Cập nhật Google Business Profile',
     'Tối ưu dịch vụ / mô tả / hình ảnh',
     '2 bài viết trên website tối ưu SEO mỗi tháng',
@@ -161,6 +182,7 @@ function toCard(
   plan: {
     name: string;
     price: string;
+    description?: string;
     features: readonly string[];
     highlighted?: boolean;
     ctaLabel?: string;
@@ -171,6 +193,7 @@ function toCard(
   return {
     name: plan.name,
     price: plan.price,
+    description: plan.description,
     features: [...plan.features],
     highlighted: plan.highlighted,
     ctaLabel: plan.ctaLabel,
@@ -201,6 +224,7 @@ export const BANG_GIA_PRICING: PricingBlockContent = {
     toCard({ ...PLAN_VOICE, ...BANG_GIA_VOICE_CTA }),
     toCard({ ...PLAN_INBOX, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_WEBSITE_BASIC, ...BANG_GIA_TRIAL_CTA }),
+    toCard({ ...PLAN_LOCAL_SEO, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_WEBSITE_GROWTH, highlighted: false, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_BUNDLE, ...BANG_GIA_TRIAL_CTA }),
   ],
@@ -225,12 +249,13 @@ export const SERVICE_PRICING = {
     note: PRICING_NOTE,
   } satisfies PricingBlockContent,
   website: {
-    heading: 'Website + duy trì',
+    heading: 'Chọn đúng gói: làm web · chỉ SEO · hoặc cả hai',
     plans: [
       toCard({ ...PLAN_WEBSITE_BASIC, ...SERVICE_TRIAL_CTA }),
+      toCard({ ...PLAN_LOCAL_SEO, ...SERVICE_TRIAL_CTA }),
       toCard({ ...PLAN_WEBSITE_GROWTH, ...SERVICE_TRIAL_CTA }),
     ],
-    note: PRICING_NOTE,
+    note: `${PRICING_NOTE} Local SEO / Google Growth không bắt buộc làm website mới.`,
   } satisfies PricingBlockContent,
 } as const;
 
