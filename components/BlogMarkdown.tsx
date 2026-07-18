@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 
 function renderInline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
-  const re = /(\*\*[^*]+\*\*|\*[^*]+\*)/g;
+  const re = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*)/g;
   let last = 0;
   let match: RegExpExecArray | null;
   let key = 0;
@@ -12,7 +13,27 @@ function renderInline(text: string): ReactNode[] {
       nodes.push(text.slice(last, match.index));
     }
     const token = match[0];
-    if (token.startsWith('**')) {
+    if (token.startsWith('[')) {
+      const linkMatch = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token);
+      if (linkMatch) {
+        const [, label, href] = linkMatch;
+        const className =
+          'font-semibold text-roseNude underline-offset-2 transition hover:underline';
+        if (href.startsWith('/')) {
+          nodes.push(
+            <Link key={key++} href={href} className={className}>
+              {label}
+            </Link>,
+          );
+        } else {
+          nodes.push(
+            <a key={key++} href={href} target="_blank" rel="noreferrer" className={className}>
+              {label}
+            </a>,
+          );
+        }
+      }
+    } else if (token.startsWith('**')) {
       nodes.push(
         <strong key={key++} className="font-semibold text-ink">
           {token.slice(2, -2)}
@@ -33,7 +54,8 @@ function renderInline(text: string): ReactNode[] {
 }
 
 /**
- * Lightweight markdown for blog seed: ## headings, paragraphs, - lists, ---, **bold**, *italic*.
+ * Lightweight markdown for blog seed: ## headings, paragraphs, - / 1. lists,
+ * ---, **bold**, *italic*, [links](/path).
  */
 export function BlogMarkdown({ source }: { source: string }) {
   const lines = source.replace(/\r\n/g, '\n').trim().split('\n');
