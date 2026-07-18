@@ -103,4 +103,28 @@ body {
   main .grid > article.rounded-3xl:hover {
     transform: none;
   }
+
+  [class*='ums-modal-'] {
+    animation: none !important;
+  }
+}
+
+@keyframes ums-modal-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ums-modal-panel {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

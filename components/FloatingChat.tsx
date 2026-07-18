@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { CONTACT } from '@/lib/constants';
+import { ZaloContactButton } from '@/components/ZaloContactButton';
 
 const EDGE_PX = 18;
 const BTN_CLASS =
@@ -107,9 +108,15 @@ export function FloatingChat() {
       <ChatButton href={CONTACT.messenger} label="Nhắn Facebook" bgClass="bg-[#0084FF]">
         <MessengerIcon className="h-7 w-7" />
       </ChatButton>
-      <ChatButton href={CONTACT.zalo} label="Nhắn Zalo" bgClass="bg-[#0068FF]">
+      <ZaloContactButton
+        ariaLabel="Nhắn Zalo"
+        className={`${BTN_CLASS} bg-[#0068FF] pointer-events-auto text-white group`}
+      >
+        <span className="pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-lg bg-ink px-3 py-1.5 text-xs font-semibold text-cream opacity-0 shadow-soft transition group-hover:opacity-100 md:block">
+          Nhắn Zalo
+        </span>
         <ZaloIcon className="h-7 w-7" />
-      </ChatButton>
+      </ZaloContactButton>
     </div>
   );
 }

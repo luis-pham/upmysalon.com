@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CONTACT, SERVICE_LINKS } from '@/lib/constants';
 import { getLegalFooterLinks } from '@/lib/legal';
+import { ZaloContactButton } from '@/components/ZaloContactButton';
 
 const COMPANY_LINKS = [
   { href: '/gioi-thieu', label: 'Giới thiệu' },
@@ -9,11 +10,8 @@ const COMPANY_LINKS = [
   { href: '/lien-he', label: 'Liên hệ' },
 ] as const;
 
-const SOCIAL_LINKS = [
-  { href: CONTACT.messenger, label: 'Messenger', icon: MessengerIcon },
-  { href: CONTACT.zalo, label: 'Zalo', icon: ZaloIcon },
-  { href: CONTACT.instagram, label: 'Instagram', icon: InstagramIcon },
-] as const;
+const SOCIAL_BTN_CLASS =
+  'grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition hover:border-white/35 hover:text-white';
 
 function MessengerIcon({ className }: { className?: string }) {
   return (
@@ -103,18 +101,27 @@ export function Footer() {
               </p>
             </div>
             <div className="mt-5 flex items-center gap-3">
-              {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition hover:border-white/35 hover:text-white"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
+              <a
+                href={CONTACT.messenger}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Messenger"
+                className={SOCIAL_BTN_CLASS}
+              >
+                <MessengerIcon className="h-5 w-5" />
+              </a>
+              <ZaloContactButton ariaLabel="Zalo" className={SOCIAL_BTN_CLASS}>
+                <ZaloIcon className="h-5 w-5" />
+              </ZaloContactButton>
+              <a
+                href={CONTACT.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className={SOCIAL_BTN_CLASS}
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </a>
             </div>
           </div>
 

@@ -8,6 +8,12 @@ export const CONTACT = {
   instagram: 'https://instagram.com/upmysalon',
 };
 
+/** Alias used by Zalo CTA / QR modal. */
+export const ZALO_LINK = CONTACT.zalo;
+
+/** QR image for desktop “Nhắn Zalo” modal. */
+export const ZALO_QR_URL = 'https://pub-464909a58fec467db9a15df71c98bc24.r2.dev/IMG_9140.JPG';
+
 export const CTA_TEXT = 'Nhận kiểm tra Google + review miễn phí';
 /** Dùng cho nút hẹp (sticky mobile, v.v.). */
 export const CTA_TEXT_SHORT = 'Kiểm tra tiệm miễn phí';

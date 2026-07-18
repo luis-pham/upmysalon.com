@@ -24,6 +24,7 @@ import { FaqAccordion } from '@/components/FaqAccordion';
 import { EffortContrastBlock } from '@/app/(site)/_blocks';
 import { HeroCarousel } from '@/components/HeroCarousel';
 import { DemoCallBlock } from '@/components/demo/DemoCallBlock';
+import { ZaloContactButton } from '@/components/ZaloContactButton';
 import { HOME_HERO_SLIDES } from '@/content/hero';
 import { HOME_PRICING_TEASERS, PRICING_NOTE } from '@/content/pricing';
 
@@ -276,7 +277,7 @@ export default function HomePage() {
             Để UpMySalon check giúp tiệm anh/chị miễn phí
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/70">
-            UpMySalon xem Google, review và cách khách đang tìm thấy tiệm. Sau đó nói thẳng tiệm đang thiếu gì — không ép mua.
+            UpMySalon kiểm tra Google, review và cách khách tìm thấy tiệm, rồi chỉ rõ tiệm đang thiếu gì và nên cải thiện ở đâu — hoàn toàn miễn phí.
           </p>
           <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
             <a
@@ -288,15 +289,10 @@ export default function HomePage() {
               <MessagesSquare className="h-5 w-5" />
               Nhắn Messenger
             </a>
-            <a
-              href={CONTACT.zalo}
-              target="_blank"
-              rel="noreferrer"
-              className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"
-            >
+            <ZaloContactButton className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5">
               <MessageCircle className="h-5 w-5" />
               Nhắn Zalo
-            </a>
+            </ZaloContactButton>
             <a
               href={`tel:${CONTACT.phone}`}
               className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"

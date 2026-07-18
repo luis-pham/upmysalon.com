@@ -12,6 +12,7 @@ import { CONTACT } from '@/lib/constants';
 import { buildMetadata, getAllPageSlugs, getPage } from '@/lib/content';
 import { isLegalSlug } from '@/lib/legal';
 import { JsonLd } from '@/components/JsonLd';
+import { ZaloContactButton } from '@/components/ZaloContactButton';
 import { faqPageJsonLd, serviceJsonLd } from '@/lib/seo/jsonld';
 import {
   Camera,
@@ -162,8 +163,8 @@ export default async function Page({ params }: Props) {
         <section className="bg-ink py-16 text-white sm:py-24">
           <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
             <p className="mx-auto max-w-2xl text-lg leading-8 text-white/70">
-              UpMySalon xem Google, review và cách khách đang tìm thấy tiệm. Sau đó nói thẳng tiệm đang thiếu gì —
-              không ép mua.
+              UpMySalon kiểm tra Google, review và cách khách tìm thấy tiệm, rồi chỉ rõ tiệm đang thiếu gì và nên
+              cải thiện ở đâu — hoàn toàn miễn phí.
             </p>
             <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
               <a
@@ -175,15 +176,10 @@ export default async function Page({ params }: Props) {
                 <MessagesSquare className="h-5 w-5" />
                 Nhắn Messenger
               </a>
-              <a
-                href={CONTACT.zalo}
-                target="_blank"
-                rel="noreferrer"
-                className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"
-              >
+              <ZaloContactButton className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5">
                 <MessageCircle className="h-5 w-5" />
                 Nhắn Zalo
-              </a>
+              </ZaloContactButton>
               <a
                 href={`tel:${CONTACT.phone}`}
                 className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"

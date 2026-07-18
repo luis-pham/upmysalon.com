@@ -25,6 +25,7 @@ import { CONTACT } from '@/lib/constants';
 import { PageHero } from '@/components/ui';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { DemoCallBlock } from '@/components/demo/DemoCallBlock';
+import { ZaloContactButton } from '@/components/ZaloContactButton';
 
 const ICONS = {
   PhoneCall,
@@ -317,15 +318,10 @@ export function CtaBannerBlock({ heading, subheading }: { heading: string; subhe
             <MessagesSquare className="h-5 w-5" />
             Nhắn Messenger
           </a>
-          <a
-            href={CONTACT.zalo}
-            target="_blank"
-            rel="noreferrer"
-            className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"
-          >
+          <ZaloContactButton className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5">
             <MessageCircle className="h-5 w-5" />
             Nhắn Zalo
-          </a>
+          </ZaloContactButton>
           <a
             href={`tel:${CONTACT.phone}`}
             className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"
