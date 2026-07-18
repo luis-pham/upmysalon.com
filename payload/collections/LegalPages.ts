@@ -1,16 +1,8 @@
-/**
- * Payload collection: legalPages
- * Mount in payload.config.ts when Payload + Supabase are wired:
- *   import { LegalPages } from './collections/LegalPages'
- *   collections: [..., LegalPages]
- *
- * Field shape matches lib/legal.ts + content/legalPages.seed.json.
- * Typed loosely so the app builds before `payload` is installed.
- */
+import type { CollectionConfig } from 'payload';
 
 export const LEGAL_SLUGS = ['privacy', 'terms', 'sms-consent', 'refund'] as const;
 
-export const LegalPages = {
+export const LegalPages: CollectionConfig = {
   slug: 'legalPages',
   labels: {
     singular: 'Legal Page',

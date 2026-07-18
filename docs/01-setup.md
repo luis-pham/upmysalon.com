@@ -7,7 +7,7 @@ Mục tiêu: có một app Next.js chạy được, Payload admin tại `/admin`
 - Dùng Next.js App Router + TypeScript. **Đã migrate xong từ Vite SPA** (bước 07): App Router, `lib/content.ts`, blocks server/client, home giữ nguyên.
 - Cài Payload 3.0 và các package: core Payload, `@payloadcms/next`, `@payloadcms/db-postgres`, `@payloadcms/richtext-lexical`, `@payloadcms/plugin-seo`, và `@payloadcms/storage-s3` (trỏ Cloudflare R2).
 - Payload 3 tích hợp vào Next App Router: admin phục vụ tại route `/admin`, API tại `/api`.
-- **Chưa làm:** cắm Payload + Supabase + R2 (cần env). Khi có env, đổi thân `lib/content.ts` sang Payload Local API — không phải sửa UI.
+- **Đã scaffold:** Payload 3 + Postgres adapter + collections cơ bản; admin tại `/admin`. Media tạm **local disk** (`/media`) cho đến khi có R2. Frontend vẫn đọc seed `content/` — bước tiếp: đổi `lib/content.ts` sang Local API + seed.
 
 ## 2. Kết nối Supabase Postgres
 

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Payload local media (use R2 in production — docs/06-deploy.md)
+/media/*
+!/media/.gitkeep
+/public/media
