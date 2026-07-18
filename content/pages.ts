@@ -373,7 +373,7 @@ export const websiteSeo = {
     items: [
       {
         title: 'ĐÃ CÓ WEBSITE',
-        text: `Local SEO / Google Growth — ${PLAN_LOCAL_SEO.price}. Chỉ tăng SEO + Google. Không bắt buộc làm web mới.`,
+        text: `Local SEO / Google Growth — ${PLAN_LOCAL_SEO.price}. Chỉ tăng SEO + Google. Không cần làm web mới.`,
       },
       {
         title: 'CHƯA CÓ WEBSITE',
@@ -428,12 +428,12 @@ export const websiteSeo = {
       'Website và SEO không phải làm xong rồi bỏ. Ba gói tách bạch: làm web · chỉ Local SEO · hoặc cả hai.',
     oneTime: {
       label: `Thiết lập — Website ${PLAN_WEBSITE_BASIC.price.split(' + ')[0]} · Local SEO ${PLAN_LOCAL_SEO.price.split(' + ')[0]} · Website + Growth ${PLAN_WEBSITE_GROWTH.price.split(' + ')[0]}`,
-      desc: 'Setup website khi cần làm web mới. Local SEO chỉ $99 thiết lập — không bắt buộc dựng web mới nếu tiệm đã có sẵn.',
+      desc: 'Setup website khi cần làm web mới. Local SEO chỉ $99 thiết lập — không cần dựng web mới nếu tiệm đã có sẵn.',
     },
     monthly: [
       {
         title: `Local SEO / Google Growth — ${PLAN_LOCAL_SEO.price}`,
-        desc: 'Đã có web: audit, quản lý GBP, đăng bài Google + chăm Maps, 2 bài SEO/tháng, báo cáo. Không bắt buộc làm web mới.',
+        desc: 'Đã có web: audit, quản lý GBP, đăng bài Google + chăm Maps, 2 bài SEO/tháng, báo cáo. Không cần làm web mới.',
       },
       {
         title: `Website cơ bản — ${PLAN_WEBSITE_BASIC.price}`,
@@ -460,8 +460,8 @@ export const websiteSeo = {
     heading: 'Câu hỏi thường gặp',
     items: [
       {
-        q: 'Tiệm đã có website rồi có bắt buộc làm web mới không?',
-        a: 'Không. Chọn gói Local SEO / Google Growth — chỉ tăng SEO + Google Maps. Growth không bắt buộc làm website mới.',
+        q: 'Tiệm đã có website rồi có cần làm web mới không?',
+        a: 'Không. Chọn gói Local SEO / Google Growth — chỉ tăng SEO + Google Maps. Growth không cần làm website mới.',
       },
       {
         q: 'Kiểm tra website + Google Maps miễn phí rồi sao?',
@@ -570,7 +570,8 @@ export const lienHe = {
 export const blogIndex = {
   seo: {
     title: 'Cẩm nang cho tiệm nail',
-    description: 'Bài viết hướng dẫn cho chủ tiệm nail người Việt tại Mỹ: review, Google Maps, nghe máy, đông khách.',
+    description:
+      'Bài viết hướng dẫn cho chủ tiệm nail người Việt tại Mỹ: review, Google Maps, nghe máy, tin nhắn FB/IG, đông khách.',
   },
   hero: {
     eyebrow: 'Cẩm nang',
@@ -579,41 +580,5 @@ export const blogIndex = {
   },
 };
 
-export const blogPosts = [
-  {
-    slug: 'moi-cuoc-goi-nho-tiem-mat-bao-nhieu-tien',
-    title: 'Mỗi cuộc gọi nhỡ, tiệm mất bao nhiêu tiền?',
-    excerpt: 'Khách gọi 2–3 lần không ai nghe rồi qua tiệm khác. Ước tính nhanh số tiền tiệm có thể đang mất mỗi tuần.',
-    tag: 'Nghe máy',
-    publishedAt: '2026-07-01',
-    body: [
-      'Giờ cao điểm, cả tiệm đang bận tay — điện thoại reo. Khách gọi lần hai, lần ba, rồi đặt chỗ khác.',
-      'Nếu mỗi khách mang lại khoảng $40–60, chỉ vài cuộc gọi nhỡ mỗi ngày đã đủ làm doanh thu “biến mất” im lặng.',
-      'UpMySalon giúp bắt máy 24/7, đặt lịch và nhắn lại cuộc gọi nhỡ — anh/chị tập trung làm nail.',
-    ],
-  },
-  {
-    slug: 'checklist-2-phut-ho-so-google-tiem',
-    title: 'Checklist 2 phút: hồ sơ Google của tiệm đã chuẩn chưa?',
-    excerpt: 'Giờ mở cửa, ảnh, danh mục dịch vụ, nút gọi — checklist nhanh để tiệm dễ được chọn hơn trên Maps.',
-    tag: 'Google Maps',
-    publishedAt: '2026-07-05',
-    body: [
-      'Khách Mỹ hay tìm tiệm trên Google Maps. Hồ sơ sơ sài = dễ mất lượt click.',
-      'Checklist nhanh: giờ mở cửa đúng chưa? Ảnh thật đủ chưa? Có nút gọi rõ không? Review gần đây có đều không?',
-      'UpMySalon có thể kiểm tra hồ sơ Google miễn phí 15 phút và nói thẳng tiệm đang thiếu gì.',
-    ],
-  },
-  {
-    slug: 'vi-sao-tiem-48-sao-dong-hon-42',
-    title: 'Vì sao tiệm 4.8 sao luôn đông hơn tiệm 4.2 sao?',
-    excerpt: 'Điểm sao và số lượng review ảnh hưởng mạnh đến quyết định của khách mới. Xin review đều đặn là việc nên làm.',
-    tag: 'Review',
-    publishedAt: '2026-07-10',
-    body: [
-      'Khách mới thường so sánh sao và số review trước khi gọi. Chênh lệch 4.2 và 4.8 nhìn nhỏ nhưng quyết định rất lớn.',
-      'Xin review sau mỗi lần khách tới (QR + tin nhắn) giúp số sao tăng đều — đúng chính sách Google, không lọc/gate.',
-      'UpMySalon làm phần xin và trả lời review bằng tiếng Việt.',
-    ],
-  },
-];
+/** Seed blog — xem content/blog.ts (5 bài từ docs/blog). */
+export { blogPosts } from '@/content/blog';

@@ -190,7 +190,7 @@ export const PLAN_LOCAL_SEO = {
     'Đăng bài Google + chăm Maps',
     '2 bài viết SEO/tháng — nghiên cứu đúng từ khoá khách tìm ở khu vực tiệm, viết chuẩn SEO, soạn sẵn để tiệm chỉ việc đăng (hoặc UpMySalon đăng nếu quản web của tiệm)',
     'Báo cáo tháng',
-    'Không bắt buộc làm web mới',
+    'Không cần làm web mới',
   ],
 } as const;
 
@@ -350,7 +350,7 @@ export const SERVICE_PRICING = {
   website: {
     heading: 'Website & SEO — chọn đúng trường hợp tiệm',
     group: WEBSITE_SEO_GROUP,
-    note: `${PRICING_NOTE} Local SEO / Google Growth không bắt buộc làm website mới.`,
+    note: `${PRICING_NOTE} Local SEO / Google Growth không cần làm website mới.`,
   },
 } as const;
 

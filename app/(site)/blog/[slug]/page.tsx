@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CtaBannerBlock } from '@/app/(site)/_blocks';
+import { BlogMarkdown } from '@/components/BlogMarkdown';
 import { JsonLd } from '@/components/JsonLd';
 import { buildMetadata, getPost, getPosts } from '@/lib/content';
 import { blogPostingJsonLd } from '@/lib/seo/jsonld';
@@ -46,12 +47,8 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-roseNude">{post.tag}</p>
           <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{post.title}</h1>
           <p className="mt-4 text-sm text-black/50">{post.publishedAt}</p>
-          <div className="mt-10 space-y-6">
-            {post.body.map((para) => (
-              <p key={para.slice(0, 32)} className="text-lg leading-8 text-black/68">
-                {para}
-              </p>
-            ))}
+          <div className="mt-10">
+            <BlogMarkdown source={post.bodyMarkdown} />
           </div>
         </div>
       </article>
