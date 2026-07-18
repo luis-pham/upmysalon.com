@@ -86,6 +86,22 @@ export function Footer() {
             <p className="mt-4 max-w-xs leading-7 text-white/45">
               Dịch vụ AI và Marketing giúp tăng trưởng cho tiệm Nail người Việt tại Mỹ.
             </p>
+            <div className="mt-5 space-y-3 text-sm leading-6 text-white/45">
+              <p>
+                <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-white/35">
+                  Customer Support
+                </span>
+                <a href={`tel:${CONTACT.phone}`} className="mt-1 inline-block text-white/70 transition hover:text-white">
+                  {CONTACT.phoneDisplay}
+                </a>
+              </p>
+              <p>
+                <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-white/35">
+                  Business Mailing Address
+                </span>
+                <span className="mt-1 block whitespace-pre-line text-white/55">{CONTACT.mailingAddress}</span>
+              </p>
+            </div>
             <div className="mt-5 flex items-center gap-3">
               {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
                 <a

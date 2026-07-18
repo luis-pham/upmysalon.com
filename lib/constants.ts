@@ -1,7 +1,9 @@
 export const CONTACT = {
   messenger: 'https://m.me/upmysalon',
   zalo: 'https://zalo.me/0000000000',
-  phone: '+1-000-000-0000',
+  phone: '+16265013960',
+  phoneDisplay: '+1 (626) 501-3960',
+  mailingAddress: '30 N Gould St Ste N\nSheridan, WY 82801',
   instagram: 'https://instagram.com/upmysalon',
 };
 

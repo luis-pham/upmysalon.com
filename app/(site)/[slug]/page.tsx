@@ -189,7 +189,7 @@ export default async function Page({ params }: Props) {
                 className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-5 py-4 font-semibold text-ink transition hover:-translate-y-0.5"
               >
                 <Phone className="h-5 w-5" />
-                Gọi ngay: {CONTACT.phone}
+                Gọi ngay: {CONTACT.phoneDisplay}
               </a>
               <a
                 href={CONTACT.instagram}
