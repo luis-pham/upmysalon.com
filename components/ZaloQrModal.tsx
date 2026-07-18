@@ -77,7 +77,7 @@ export function ZaloQrModal({ onClose }: Props) {
             Nhắn Zalo với UpMySalon
           </h2>
           <p className="mt-3 text-base leading-7 text-black/62">
-            Quét mã bằng điện thoại để nhắn với tụi em bằng tiếng Việt.
+            Quét mã bằng điện thoại để nhắn với nhân viên UpMySalon bằng tiếng Việt.
           </p>
         </div>
 

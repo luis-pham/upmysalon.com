@@ -24,7 +24,7 @@ export const ngheMay = {
     eyebrow: 'Nghe máy & đặt lịch',
     heading: 'Mỗi cuộc gọi nhỡ là một khách mất đi',
     subheading:
-      'Lễ Tân AI của UpMySalon được thiết kế riêng để trả lời điện thoại cho tiệm nail. Dựa trên kinh nghiệm và sự hiểu biết về nghề nail, nó hiểu dịch vụ (full set, gel, bột, pedicure…), hiểu khách walk-in, và trả lời tự nhiên như lễ tân người thật — chào khách, báo giá, đặt lịch — ngay cả khi cả tiệm đang bận tay.',
+      'Lễ tân AI của UpMySalon được thiết kế và đào tạo để trả lời điện thoại cho tiệm nail. Dựa trên kinh nghiệm và sự hiểu biết về nghề nail, nó hiểu dịch vụ (full set, gel, bột, pedicure…), hiểu khách walk-in, và trả lời tự nhiên như lễ tân người thật hiểu về dịch vụ nail — khác với các AI khác.',
     ctaLabel: 'Nghe thử demo ngay',
     image: '/hero/ai_phone.jpg',
     imageAlt: 'AI nghe điện thoại và đặt lịch cho tiệm nail',
@@ -154,6 +154,10 @@ export const ngheMay = {
       { title: 'Latency thấp', text: 'Bắt máy nhanh, khách không phải chờ lâu.' },
       { title: 'Đặt lịch thật', text: 'Lịch vào đúng giờ trống, giảm chồng lịch.' },
       { title: 'Giọng tự nhiên', text: 'Nói chuyện với khách Mỹ mượt như người thật.' },
+      {
+        title: 'AI chuyên biệt cho nail salon',
+        text: 'UpMySalon hỗ trợ anh/chị thay đổi theo thông tin và dịch vụ của tiệm mình.',
+      },
     ],
   },
   pricing: SERVICE_PRICING.voice,
