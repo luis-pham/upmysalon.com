@@ -38,8 +38,8 @@ export function stickyCtaLabelForPath(pathname: string | null): string {
 
 export const SERVICE_LINKS = [
   { href: '/le-tan-ai-nghe-may-dat-lich', label: 'Lễ tân AI nghe điện thoại, đặt lịch' },
-  { href: '/danh-gia-google', label: 'Quản lý đánh giá Google' },
-  { href: '/ai-quan-ly-inbox-facebook-ig', label: 'Quản lý & trả lời FB/IG' },
+  { href: '/danh-gia-google', label: 'Xin & quản lý đánh giá Google' },
+  { href: '/ai-quan-ly-inbox-facebook-ig', label: 'AI trả lời FB/IG & đặt lịch' },
   { href: '/website-seo', label: 'Website, SEO & Google Maps' },
 ] as const;
 
