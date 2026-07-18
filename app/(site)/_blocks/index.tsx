@@ -374,22 +374,19 @@ export function BangGiaPricingBlock(data: BangGiaPricingLayout) {
           {data.heading}
         </h2>
 
-        <div className="mx-auto mt-10 max-w-3xl rounded-[1.75rem] border border-black/8 bg-cream p-6 sm:p-8">
-          <h3 className="text-center text-xl font-semibold sm:text-2xl">{data.painHeading}</h3>
-          <ul className="mt-6 space-y-3">
-            {data.painLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="flex flex-col gap-1 rounded-2xl border border-black/5 bg-white px-4 py-3 transition hover:border-roseNude/40 hover:bg-roseSoft/40 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
-                >
-                  <span className="text-base leading-7 text-ink/80">{link.pain}</span>
-                  <span className="shrink-0 text-sm font-semibold text-roseNude">→ {link.packageLabel}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="mx-auto mt-10 max-w-3xl space-y-3">
+          {data.painLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="flex flex-col gap-1 rounded-2xl px-1 py-2 transition hover:text-roseNude sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+              >
+                <span className="text-base leading-7 text-ink/80">{link.pain}</span>
+                <span className="shrink-0 text-sm font-semibold text-roseNude">→ {link.packageLabel}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {data.standalonePlans.map((plan) => (

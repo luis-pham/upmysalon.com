@@ -57,7 +57,6 @@ export type PricingPainLink = {
 
 export type BangGiaPricingLayout = {
   heading: string;
-  painHeading: string;
   painLinks: PricingPainLink[];
   standalonePlans: PricingPlanCard[];
   websiteGroup: WebsiteSeoGroup;
@@ -104,7 +103,7 @@ export const PLAN_VOICE = {
     'Custom (liên hệ) — trên 200 captured calls',
     'Bắt máy khi tiệm bận hoặc ngoài giờ',
     'Trả lời câu hỏi thường gặp; đặt lịch; nhắn lại cuộc gọi nhỡ',
-    'Hỗ trợ tiếng Anh và tiếng Tây Ban Nha theo cấu hình (AI nói với khách của tiệm — không phải tiếng Việt)',
+    'AI hỗ trợ tiếng Anh và tiếng Tây Ban Nha với khách hàng',
     'Captured call theo chuẩn RingBooker — không tính spam, cuộc quá ngắn, chuyển tiếp thất bại',
   ],
 } as const;
@@ -124,7 +123,7 @@ export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
       'Bắt máy khi tiệm bận hoặc ngoài giờ',
       'Trả lời câu hỏi thường gặp',
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
-      'Anh & Tây Ban Nha theo cấu hình (không phải tiếng Việt — AI nói với khách)',
+      'AI hỗ trợ tiếng Anh và tiếng Tây Ban Nha với khách hàng',
     ],
     ...VOICE_TIER_CTA,
   },
@@ -136,7 +135,7 @@ export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
       'Bắt máy khi tiệm bận hoặc ngoài giờ',
       'Trả lời câu hỏi thường gặp',
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
-      'Anh & Tây Ban Nha theo cấu hình (không phải tiếng Việt — AI nói với khách)',
+      'AI hỗ trợ tiếng Anh và tiếng Tây Ban Nha với khách hàng',
     ],
     ...VOICE_TIER_CTA,
   },
@@ -148,7 +147,7 @@ export const PLAN_VOICE_TIERS: PricingPlanCard[] = [
       'Bắt máy khi tiệm bận hoặc ngoài giờ',
       'Trả lời câu hỏi thường gặp',
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
-      'Anh & Tây Ban Nha theo cấu hình (không phải tiếng Việt — AI nói với khách)',
+      'AI hỗ trợ tiếng Anh và tiếng Tây Ban Nha với khách hàng',
     ],
     ...VOICE_TIER_CTA,
   },
@@ -189,7 +188,7 @@ export const PLAN_LOCAL_SEO = {
     'Kiểm tra (audit) website + Google Maps',
     'Quản lý & tối ưu Google Business Profile',
     'Đăng bài Google + chăm Maps',
-    '2 bài viết SEO/tháng (đăng lên web tiệm; hoặc bên em soạn nội dung để tiệm tự đăng nếu web tiệm bên em không quản)',
+    '2 bài viết SEO/tháng — nghiên cứu đúng từ khoá khách tìm ở khu vực tiệm, viết chuẩn SEO, soạn sẵn để tiệm chỉ việc đăng (hoặc UpMySalon đăng nếu quản web của tiệm)',
     'Báo cáo tháng',
     'Không bắt buộc làm web mới',
   ],
@@ -214,9 +213,10 @@ export const PLAN_BUNDLE = {
   name: 'Trọn gói',
   price: '$199/tháng + $199 phí thiết lập',
   features: [
-    'Nghe máy + review',
-    'Facebook & Instagram',
-    'Website + Google Maps',
+    'Lễ tân AI nghe máy điện thoại và đặt lịch',
+    'Hệ thống quản lý Review trên Google Maps (có AI hỗ trợ trả lời comment)',
+    'AI tự động trả lời tin nhắn và đặt lịch trên Facebook, Instagram',
+    'Thiết kế mới website hoặc tối ưu website cũ, tối ưu SEO website, Google Maps',
   ],
   highlighted: true,
 } as const;
@@ -292,7 +292,6 @@ const SERVICE_TRIAL_CTA = {
 /** Trang /bang-gia — layout đã duyệt (pain links + gộp Website & SEO). */
 export const BANG_GIA_PRICING_LAYOUT: BangGiaPricingLayout = {
   heading: 'Chọn phần tiệm đang cần nhất',
-  painHeading: 'Anh/chị đang cần gì nhất?',
   painLinks: [
     { href: `#${PLAN_VOICE.id}`, pain: 'Mất cuộc gọi khi bận tay', packageLabel: 'Nghe máy' },
     { href: `#${PLAN_REVIEW.id}`, pain: 'Ít review, điểm sao thấp', packageLabel: 'Review' },
@@ -366,19 +365,10 @@ export const HOME_PRICING_TEASERS: PricingPlanCard[] = [
       'Starter $79 / 100 · Pro $149 / 200 · Custom trên 200',
       'Bắt máy khi tiệm bận hoặc ngoài giờ',
       'Đặt lịch; nhắn lại cuộc gọi nhỡ',
-      'Anh & Tây Ban Nha theo cấu hình',
+      'AI hỗ trợ tiếng Anh và tiếng Tây Ban Nha với khách hàng',
     ],
   }),
-  toCard({
-    ...PLAN_BUNDLE,
-    features: [
-      'Nghe máy + review',
-      'Facebook & Instagram',
-      'Làm mới / thiết kế lại website theo nhu cầu',
-      'Tối ưu GBP, Google Maps',
-      '2 bài viết trên website tối ưu SEO/tháng, báo cáo đầy đủ',
-    ],
-  }),
+  toCard(PLAN_BUNDLE),
 ];
 
 export const CAPTURED_CALL_FAQ = {
