@@ -379,7 +379,7 @@ export function BangGiaPricingBlock(data: BangGiaPricingLayout) {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="flex flex-col gap-1 rounded-2xl px-1 py-2 transition hover:text-roseNude sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                className="flex flex-col gap-1 rounded-2xl border border-black/5 bg-white px-4 py-3 transition hover:border-roseNude/40 hover:bg-roseSoft/40 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <span className="text-base leading-7 text-ink/80">{link.pain}</span>
                 <span className="shrink-0 text-sm font-semibold text-roseNude">→ {link.packageLabel}</span>
