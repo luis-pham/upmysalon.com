@@ -33,7 +33,6 @@ export const VOICE_TRIAL_HINT = 'Miễn phí 14 ngày, không cần thẻ để 
 
 export const CTA_TRIAL_MONTH = 'Đăng ký thử 1 tháng';
 export const CTA_VOICE_TRIAL = 'Dùng thử 14 ngày miễn phí';
-export const CTA_BUNDLE = 'Liên hệ báo giá';
 
 export const PLAN_REVIEW = {
   id: 'review',
@@ -203,11 +202,7 @@ export const BANG_GIA_PRICING: PricingBlockContent = {
     toCard({ ...PLAN_INBOX, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_WEBSITE_BASIC, ...BANG_GIA_TRIAL_CTA }),
     toCard({ ...PLAN_WEBSITE_GROWTH, highlighted: false, ...BANG_GIA_TRIAL_CTA }),
-    toCard({
-      ...PLAN_BUNDLE,
-      ctaLabel: CTA_BUNDLE,
-      secondaryCtaLabel: 'Nhận kiểm tra Google + review của tiệm miễn phí trước.',
-    }),
+    toCard({ ...PLAN_BUNDLE, ...BANG_GIA_TRIAL_CTA }),
   ],
   note: `${PRICING_NOTE} Gói nghe máy: ${VOICE_TRIAL_NOTE}`,
 };
