@@ -1,6 +1,7 @@
 import { config as loadEnv } from 'dotenv';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import { s3Storage } from '@payloadcms/storage-s3';
 import path from 'path';
 import { buildConfig } from 'payload';
 import { fileURLToPath } from 'url';
@@ -33,6 +34,13 @@ if (!databaseURI) {
   );
 }
 
+const r2Bucket = process.env.R2_BUCKET?.trim() || '';
+const r2Endpoint = process.env.R2_ENDPOINT?.trim() || '';
+const r2AccessKeyId = process.env.R2_ACCESS_KEY_ID?.trim() || '';
+const r2SecretAccessKey = process.env.R2_SECRET_ACCESS_KEY?.trim() || '';
+const r2PublicUrl = (process.env.R2_PUBLIC_URL?.trim() || '').replace(/\/$/, '');
+const r2Enabled = Boolean(r2Bucket && r2Endpoint && r2AccessKeyId && r2SecretAccessKey && r2PublicUrl);
+
 export default buildConfig({
   serverURL,
   admin: {
@@ -57,6 +65,29 @@ export default buildConfig({
     push: process.env.PAYLOAD_DATABASE_PUSH === 'true' || process.env.NODE_ENV !== 'production',
   }),
   sharp,
-  plugins: [],
+  plugins: [
+    s3Storage({
+      enabled: r2Enabled,
+      bucket: r2Bucket,
+      collections: {
+        media: {
+          disablePayloadAccessControl: true,
+          generateFileURL: ({ filename, prefix }) => {
+            const key = prefix ? `${prefix}/${filename}` : filename;
+            return `${r2PublicUrl}/${key}`;
+          },
+        },
+      },
+      config: {
+        credentials: {
+          accessKeyId: r2AccessKeyId,
+          secretAccessKey: r2SecretAccessKey,
+        },
+        region: process.env.S3_REGION?.trim() || 'auto',
+        endpoint: r2Endpoint,
+        forcePathStyle: true,
+      },
+    }),
+  ],
 });
 

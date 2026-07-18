@@ -6,8 +6,8 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 /**
- * Local disk until Cloudflare R2 is wired (docs/06-deploy.md).
- * Swap `staticDir` for `@payloadcms/storage-s3` pointing at R2 later.
+ * Upload collection. Files go to Cloudflare R2 when R2_* env is set
+ * (`@payloadcms/storage-s3` in payload.config.ts); otherwise local `/media`.
  */
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -26,6 +26,7 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: {
+    // Kept for local fallback when R2 plugin is disabled.
     staticDir: path.resolve(dirname, '../../media'),
     imageSizes: [
       { name: 'thumbnail', width: 400, height: undefined, position: 'centre' },
