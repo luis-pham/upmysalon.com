@@ -18,7 +18,7 @@ export const ngheMay = {
   seo: {
     title: 'Tổng đài AI nghe máy & đặt lịch cho tiệm nail',
     description:
-      'AI bắt máy 24/7 thay anh/chị khi đang bận làm khách, đặt lịch tự động, nhắn lại cuộc gọi nhỡ. Nghe thử demo bằng tên tiệm của anh/chị.',
+      'Lễ tân AI bắt máy 24/7 thay anh/chị khi đang bận làm khách, đặt lịch tự động, nhắn lại cuộc gọi nhỡ. Nghe thử demo bằng tên tiệm của anh/chị.',
   },
   hero: {
     eyebrow: 'Nghe máy & đặt lịch',
@@ -177,7 +177,7 @@ export const danhGiaGoogle = {
   seo: {
     title: 'Tăng review Google 5 sao cho tiệm nail — làm A–Z',
     description:
-      'UpMySalon xin review sau mỗi lần khách tới, trả lời giúp mọi review bằng tiếng Anh chuyên nghiệp. Nhận kiểm tra Google + review miễn phí.',
+      'Phần mềm tự động xin review sau mỗi lần khách tới, trả lời giúp mọi review bằng tiếng Anh chuyên nghiệp. Nhận kiểm tra Google + review miễn phí.',
   },
   hero: {
     eyebrow: 'Đánh giá Google',
@@ -338,7 +338,7 @@ export const websiteSeo = {
   seo: {
     title: 'Làm website tiệm nail chuẩn SEO + lên Google Maps',
     description:
-      "Tạo mới hoặc làm lại website cho tiệm, tối ưu SEO, đưa tiệm lên top Google Maps để khách tìm 'nail near me' thấy anh/chị trước.",
+      "Dịch vụ tạo mới hoặc làm lại website cho tiệm, tối ưu SEO, đưa tiệm lên top Google Maps để khách tìm 'nail near me' thấy anh/chị trước.",
   },
   hero: {
     eyebrow: 'Website & SEO',

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | UpMySalon',
   },
   description:
-    'UpMySalon giúp chủ tiệm nail người Việt tại Mỹ đông khách hơn, quản lý review, nghe máy và đưa tiệm lên Google Maps.',
+    'Phần mềm tiếp tân AI, Marketing và chăm sóc khách hàng giúp tiệm nail ở Mỹ tăng trưởng doanh thu: nghe máy, review 5 sao, tin nhắn FB/IG, website & Google Maps. Nói tiếng Việt, không hợp đồng dài.',
   alternates: {
     canonical: '/',
   },

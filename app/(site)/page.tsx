@@ -7,7 +7,7 @@ import { faqPageJsonLd } from '@/lib/seo/jsonld';
 const homeSeo = {
   title: 'Dịch vụ AI & marketing cho tiệm nail Việt | UpMySalon',
   description:
-    'Đội ngũ người Việt giúp tiệm nail ở Mỹ đông khách hơn: nghe máy, review 5 sao, tin nhắn FB/IG, website & Google Maps. Nói tiếng Việt, không hợp đồng dài.',
+    'Phần mềm tiếp tân AI, Marketing và chăm sóc khách hàng giúp tiệm nail ở Mỹ tăng trưởng doanh thu: nghe máy, review 5 sao, tin nhắn FB/IG, website & Google Maps. Nói tiếng Việt, không hợp đồng dài.',
 };
 
 export const metadata: Metadata = {
