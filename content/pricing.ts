@@ -86,7 +86,7 @@ export const PLAN_REVIEW = {
   features: [
     'Xin review sau mỗi lượt khách',
     'Hệ thống tự động trả lời review bằng tiếng Anh',
-    'Đội ngũ người Việt bàn cách xử lý review xấu',
+    'Phát hiện review xấu sớm — UpMySalon cùng tiệm xử lý',
     'Theo dõi số sao',
     'Giới hạn: 1 địa điểm, tối đa 500 yêu cầu review/tháng',
   ],
@@ -354,22 +354,28 @@ export const SERVICE_PRICING = {
   },
 } as const;
 
-/** Teaser giá trên trang chủ (3 cột). */
-export const HOME_PRICING_TEASERS: PricingPlanCard[] = [
-  toCard(PLAN_REVIEW),
-  toCard({
-    name: PLAN_VOICE.name,
-    price: PLAN_VOICE.price,
-    setupNote: NO_SETUP_FEE,
-    features: [
-      'Starter $79 / 100 · Pro $149 / 200 · Custom trên 200',
-      'Bắt máy khi tiệm bận hoặc ngoài giờ',
-      'Đặt lịch; nhắn lại cuộc gọi nhỡ',
-      'AI hỗ trợ tiếng Anh và tiếng Tây Ban Nha với khách hàng',
-    ],
-  }),
-  toCard(PLAN_BUNDLE),
-];
+/** Teaser giá trang chủ — Phương án B (gọn, 1 card Trọn gói + chip dịch vụ). */
+export const HOME_PRICING_TEASER = {
+  eyebrow: 'Bảng giá đơn giản',
+  title: 'Chọn phần tiệm đang cần nhất',
+  description:
+    'Linh hoạt theo nhu cầu — chỉ từ $49/tháng. Thử theo tháng, không hợp đồng dài. Chất lượng Mỹ, giá Việt Nam.',
+  chips: [
+    { label: 'Review', price: '$49' },
+    { label: 'Nghe máy', price: 'từ $79' },
+    { label: 'Tin nhắn FB/IG', price: '$59' },
+    { label: 'Website & SEO', price: 'từ $59' },
+  ],
+  bundle: {
+    name: PLAN_BUNDLE.name,
+    price: PLAN_BUNDLE.price,
+    tag: 'Đủ nhất',
+    features: ['Nghe máy + Review · Facebook & Instagram · Website + Google Maps'],
+    ctaLabel: CTA_TRIAL_MONTH,
+  },
+  fullPricingLabel: 'Xem bảng giá đầy đủ →',
+  auditCtaLabel: CTA_FREE_AUDIT,
+} as const;
 
 export const CAPTURED_CALL_FAQ = {
   q: 'Captured call là gì? Cuộc nào được tính?',

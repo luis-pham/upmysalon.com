@@ -40,7 +40,7 @@ export const SERVICE_LINKS = [
   { href: '/le-tan-ai-nghe-may-dat-lich', label: 'Lễ tân AI nghe điện thoại, đặt lịch' },
   { href: '/danh-gia-google', label: 'Quản lý đánh giá Google' },
   { href: '/ai-quan-ly-inbox-facebook-ig', label: 'Quản lý & trả lời FB/IG' },
-  { href: '/website-seo', label: 'Website & SEO' },
+  { href: '/website-seo', label: 'Website, SEO & Google Maps' },
 ] as const;
 
 export const NAV_LINKS: ReadonlyArray<{

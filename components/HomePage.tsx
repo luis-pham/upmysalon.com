@@ -26,7 +26,7 @@ import { HeroCarousel } from '@/components/HeroCarousel';
 import { DemoCallBlock } from '@/components/demo/DemoCallBlock';
 import { ZaloContactButton } from '@/components/ZaloContactButton';
 import { HOME_HERO_SLIDES } from '@/content/hero';
-import { HOME_PRICING_TEASERS, PRICING_NOTE } from '@/content/pricing';
+import { HOME_PRICING_TEASER } from '@/content/pricing';
 
 const painPoints = [
   { icon: PhoneCall, text: 'Khách gọi lúc anh/chị đang bận tay — không ai bắt máy là mất khách.' },
@@ -219,46 +219,57 @@ export default function HomePage() {
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            eyebrow="Bảng giá đơn giản"
-            title="Chọn phần tiệm đang cần nhất"
-            description="Gói linh hoạt theo nhu cầu tiệm. Chất lượng Mỹ, giá Việt Nam."
+            eyebrow={HOME_PRICING_TEASER.eyebrow}
+            title={HOME_PRICING_TEASER.title}
+            description={HOME_PRICING_TEASER.description}
           />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {HOME_PRICING_TEASERS.map((plan, index) => (
-              <div
-                key={plan.name}
-                className={`relative rounded-[2rem] border p-7 ${
-                  plan.highlighted || index === 2 ? 'border-roseNude bg-roseSoft shadow-soft' : 'border-black/8 bg-cream'
-                }`}
+
+          <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-3">
+            {HOME_PRICING_TEASER.chips.map((chip) => (
+              <span
+                key={chip.label}
+                className="inline-flex items-center gap-2 rounded-full border border-black/8 bg-cream px-4 py-2 text-sm font-semibold text-ink/80"
               >
-                {(plan.highlighted || index === 2) && (
-                  <span className="absolute right-5 top-5 rounded-full bg-roseNude px-3 py-1 text-xs font-semibold text-ink">
-                    Đủ nhất
-                  </span>
-                )}
-                <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                <p className="mt-4 text-2xl font-semibold text-roseNude">{plan.price}</p>
-                <ul className="mt-6 space-y-4">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex gap-3 leading-7">
-                      <Check className="mt-1 h-5 w-5 shrink-0 text-roseNude" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/lien-he"
-                  className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white"
-                >
-                  Nhận kiểm tra Google + review miễn phí
-                </Link>
-              </div>
+                {chip.label}
+                <span className="text-roseNude">{chip.price}</span>
+              </span>
             ))}
           </div>
-          <p className="mt-8 text-center text-lg font-semibold">{PRICING_NOTE}</p>
-          <div className="mt-6 text-center">
+
+          <div className="relative mx-auto mt-10 max-w-xl rounded-[2rem] border border-roseNude bg-roseSoft p-7 shadow-soft sm:p-8">
+            <span className="absolute right-5 top-5 rounded-full bg-roseNude px-3 py-1 text-xs font-semibold text-ink">
+              {HOME_PRICING_TEASER.bundle.tag}
+            </span>
+            <h3 className="pr-20 text-2xl font-semibold sm:text-3xl">{HOME_PRICING_TEASER.bundle.name}</h3>
+            <p className="mt-4 text-2xl font-semibold text-roseNude">{HOME_PRICING_TEASER.bundle.price}</p>
+            <ul className="mt-6 space-y-4">
+              {HOME_PRICING_TEASER.bundle.features.map((feature) => (
+                <li key={feature} className="flex gap-3 leading-7">
+                  <Check className="mt-1 h-5 w-5 shrink-0 text-roseNude" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/lien-he"
+              className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white"
+            >
+              {HOME_PRICING_TEASER.bundle.ctaLabel}
+            </Link>
+          </div>
+
+          <div className="mt-8 text-center">
             <Link href="/bang-gia" className="text-sm font-semibold text-roseNude hover:underline">
-              Xem trang bảng giá →
+              {HOME_PRICING_TEASER.fullPricingLabel}
+            </Link>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/lien-he"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-6 py-3 font-semibold text-cream transition hover:-translate-y-0.5 hover:bg-taupe"
+            >
+              {HOME_PRICING_TEASER.auditCtaLabel}
             </Link>
           </div>
         </div>

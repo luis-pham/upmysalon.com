@@ -210,14 +210,18 @@ export const danhGiaGoogle = {
       { title: 'Đúng chính sách Google', text: 'Xin tất cả khách hài lòng — không lọc/gate review.' },
       {
         title: 'Trả lời giúp',
-        text: 'Đội ngũ UpMySalon trả lời mọi review bằng tiếng Anh chuyên nghiệp thay anh/chị; gặp review xấu, đội ngũ UpMySalon bàn với anh/chị (bằng tiếng Việt) cách xử lý.',
+        text: 'Theo dõi review 24/7, AI trả lời đúng ngữ cảnh bằng tiếng Anh, bắt review xấu kịp thời — giữ điểm Google của tiệm luôn tốt.',
       },
     ],
   },
   steps: {
     heading: 'Cách hoạt động',
     items: [
-      { number: '1', title: 'Dựng cách xin review', desc: 'UpMySalon dựng xin review tự động (QR + tin nhắn) sau mỗi lượt khách.' },
+      {
+        number: '1',
+        title: 'Thiết lập xin review tự động',
+        desc: 'UpMySalon cài sẵn QR + tin nhắn để tự động xin review sau mỗi lượt khách — chủ tiệm không cần nhớ.',
+      },
       { number: '2', title: 'Khách để 5 sao', desc: 'Khách hài lòng để lại 5 sao trên Google.' },
       { number: '3', title: 'Trả lời mọi review', desc: 'UpMySalon trả lời mọi review, xử lý review xấu khéo léo.' },
     ],
@@ -231,9 +235,9 @@ export const danhGiaGoogle = {
       'Không làm gì thêm ngoài phục vụ khách như thường',
     ],
     weDo: [
-      'Dựng cách xin review tự động (QR + SMS) sau mỗi lượt khách',
+      'Thiết lập xin review tự động (QR + tin nhắn) sau mỗi lượt khách',
       'Theo dõi review mới hàng ngày',
-      'Trả lời mọi review bằng tiếng Anh chuyên nghiệp (review xấu bàn với anh/chị bằng tiếng Việt)',
+      'Trả lời mọi review bằng tiếng Anh chuyên nghiệp, đúng phong cách tiệm — phát hiện và xử lý review xấu kịp thời',
       'Báo cáo điểm sao + số review tăng',
     ],
   },

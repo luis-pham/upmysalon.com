@@ -46,11 +46,11 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-black/5 bg-cream/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="UpMySalon trang chủ">
-          {/* Brand kit: header mobile 32–36px, desktop 40–48px — bumped slightly for presence */}
+          {/* Brand kit heights +20%: 40→48, 44→52.8, 48→57.6 */}
           <img
             src="/brand/logo-horizontal.svg"
             alt="UpMySalon"
-            className="h-10 w-auto sm:h-11 md:h-12"
+            className="h-12 w-auto sm:h-[3.3rem] md:h-[3.6rem]"
           />
         </Link>
 
