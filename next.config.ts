@@ -18,10 +18,12 @@ const r2PublicHost = (() => {
 
 const nextConfig: NextConfig = {
   images: {
+    // When localPatterns is set, ONLY matching paths are allowed.
+    // Must include public/ assets (/hero, /brand) — not only Payload media proxy.
     localPatterns: [
-      {
-        pathname: '/api/media/file/**',
-      },
+      { pathname: '/hero/**' },
+      { pathname: '/brand/**' },
+      { pathname: '/api/media/file/**' },
     ],
     remotePatterns: [
       {
