@@ -1,8 +1,9 @@
 /** Seed content for non-home pages — mirrors docs/05-pages.md (home skipped). */
 
 import {
-  BANG_GIA_PRICING,
+  BANG_GIA_PRICING_LAYOUT,
   CAPTURED_CALL_FAQ,
+  CTA_FREE_AUDIT,
   PLAN_LOCAL_SEO,
   PLAN_WEBSITE_BASIC,
   PLAN_WEBSITE_GROWTH,
@@ -364,19 +365,19 @@ export const websiteSeo = {
     ],
   },
   proof: {
-    heading: '3 gói tách bạch — chọn đúng nhu cầu tiệm',
+    heading: 'Anh/chị thuộc trường hợp nào?',
     items: [
       {
-        title: 'Website (làm web)',
-        text: 'Tiệm chưa có web hoặc cần làm lại — dựng site chuẩn, đẹp trên điện thoại. Chưa gồm SEO/Maps hàng tháng.',
+        title: 'ĐÃ CÓ WEBSITE',
+        text: `Local SEO / Google Growth — ${PLAN_LOCAL_SEO.price}. Chỉ tăng SEO + Google. Không bắt buộc làm web mới.`,
       },
       {
-        title: 'Local SEO / Google Growth',
-        text: 'Tiệm ĐÃ CÓ website — chỉ tăng SEO + lên Google. KHÔNG bắt buộc làm web mới.',
+        title: 'CHƯA CÓ WEBSITE',
+        text: `Website cơ bản — ${PLAN_WEBSITE_BASIC.price}. Làm web mới hoặc làm lại, chuẩn SEO.`,
       },
       {
-        title: 'Website + Growth',
-        text: 'Cần cả hai: làm website và chạy Local SEO/Google Growth cùng lúc.',
+        title: 'MUỐN CẢ HAI',
+        text: `Website + Google Growth — ${PLAN_WEBSITE_GROWTH.price}. Làm web và chạy SEO/Maps cùng lúc.`,
       },
     ],
   },
@@ -427,16 +428,16 @@ export const websiteSeo = {
     },
     monthly: [
       {
-        title: 'Website (làm web) — $39/tháng',
+        title: `Local SEO / Google Growth — ${PLAN_LOCAL_SEO.price}`,
+        desc: 'Đã có web: audit, quản lý GBP, đăng bài Google + chăm Maps, 2 bài SEO/tháng, báo cáo. Không bắt buộc làm web mới.',
+      },
+      {
+        title: `Website cơ bản — ${PLAN_WEBSITE_BASIC.price}`,
         desc: 'Hosting + SSL + sao lưu + theo dõi; thay giờ/số/giá cơ bản; tối đa 30 phút chỉnh nhỏ/tháng.',
       },
       {
-        title: 'Local SEO / Google Growth — $59/tháng',
-        desc: 'Đã có web: quản lý GBP, đăng bài Google + chăm Maps, 2 bài SEO/tháng, báo cáo. Không cần làm web mới.',
-      },
-      {
-        title: 'Website + Growth — $79/tháng',
-        desc: 'Gói gộp: duy trì website + toàn bộ Local SEO / Google Growth.',
+        title: `Website + Google Growth — ${PLAN_WEBSITE_GROWTH.price}`,
+        desc: 'Gói gộp: duy trì website + Local SEO / Google Growth.',
       },
     ],
     note: 'Sau kiểm tra miễn phí, UpMySalon gợi ý gói phù hợp — nhiều tiệm đã có web chỉ cần Local SEO / Google Growth.',
@@ -493,9 +494,9 @@ export const bangGia = {
     eyebrow: 'Bảng giá',
     heading: 'Gói linh hoạt — thử theo tháng, không hợp đồng dài.',
     subheading: 'Gói linh hoạt theo nhu cầu tiệm. Chất lượng Mỹ, giá Việt Nam.',
-    ctaLabel: 'Nhận kiểm tra Google + review miễn phí',
+    ctaLabel: CTA_FREE_AUDIT,
   },
-  pricing: BANG_GIA_PRICING,
+  pricing: BANG_GIA_PRICING_LAYOUT,
   faq: {
     heading: 'Câu hỏi về thanh toán & huỷ',
     items: [
@@ -511,8 +512,8 @@ export const bangGia = {
     ],
   },
   ctaBanner: {
-    heading: 'Để UpMySalon check giúp tiệm anh/chị miễn phí',
-    subheading: 'Nhắn Messenger, Zalo, gọi hoặc Instagram — không ép mua.',
+    heading: CTA_FREE_AUDIT,
+    subheading: 'Nhắn Messenger, Zalo, gọi hoặc Instagram — UpMySalon nói thẳng tiệm đang thiếu gì, không ép mua.',
   },
 };
 

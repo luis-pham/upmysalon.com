@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import {
+  BangGiaPricingBlock,
   CtaBannerBlock,
   FaqBlock,
-  PricingBlock,
   ProofBlock,
   ServicePageLayout,
 } from '@/app/(site)/_blocks';
@@ -61,7 +61,7 @@ export default async function Page({ params }: Props) {
         image?: string;
         imageAlt?: string;
       };
-      pricing: Parameters<typeof PricingBlock>[0];
+      pricing: Parameters<typeof BangGiaPricingBlock>[0];
       faq: Parameters<typeof FaqBlock>[0];
       ctaBanner: Parameters<typeof CtaBannerBlock>[0];
     };
@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
           image={bangGiaPage.hero.image}
           imageAlt={bangGiaPage.hero.imageAlt}
         />
-        <PricingBlock {...bangGiaPage.pricing} />
+        <BangGiaPricingBlock {...bangGiaPage.pricing} />
         <FaqBlock {...bangGiaPage.faq} />
         <CtaBannerBlock {...bangGiaPage.ctaBanner} />
       </>

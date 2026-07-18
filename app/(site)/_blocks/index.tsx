@@ -26,6 +26,7 @@ import { PageHero } from '@/components/ui';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { DemoCallBlock } from '@/components/demo/DemoCallBlock';
 import { ZaloContactButton } from '@/components/ZaloContactButton';
+import type { BangGiaPricingLayout, WebsiteSeoGroup } from '@/content/pricing';
 
 const ICONS = {
   PhoneCall,
@@ -215,6 +216,54 @@ export function ProofBlock({
   );
 }
 
+function PlanFeatureList({ features }: { features: string[] }) {
+  return (
+    <ul className="mt-5 space-y-3">
+      {features.map((feature) => (
+        <li key={feature} className="flex gap-3 text-sm leading-6 sm:text-base sm:leading-7">
+          <Check className="mt-1 h-5 w-5 shrink-0 text-roseNude" />
+          {feature}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function WebsiteSeoGroupCard({
+  group,
+  className = '',
+}: {
+  group: WebsiteSeoGroup;
+  className?: string;
+}) {
+  return (
+    <div
+      id={group.id}
+      className={`scroll-mt-28 rounded-[2rem] border border-black/8 bg-cream p-7 sm:p-8 ${className}`}
+    >
+      <h3 className="text-2xl font-semibold sm:text-3xl">{group.name}</h3>
+      <p className="mt-3 text-lg font-semibold text-ink/80">{group.prompt}</p>
+      <div className="mt-8 grid gap-5 lg:grid-cols-3">
+        {group.cases.map((item) => (
+          <div key={item.caseLabel} className="rounded-[1.5rem] border border-black/8 bg-white p-5 sm:p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-roseNude">{item.caseLabel}</p>
+            <h4 className="mt-3 text-lg font-semibold leading-snug">
+              {item.name} — <span className="text-roseNude">{item.price}</span>
+            </h4>
+            <PlanFeatureList features={item.features} />
+          </div>
+        ))}
+      </div>
+      <Link
+        href="/lien-he"
+        className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white sm:w-auto"
+      >
+        {group.ctaLabel}
+      </Link>
+    </div>
+  );
+}
+
 export function PricingBlock({
   heading,
   plans,
@@ -222,9 +271,11 @@ export function PricingBlock({
 }: {
   heading?: string;
   plans: {
+    id?: string;
     name: string;
     price: string;
     description?: string;
+    setupNote?: string;
     features: string[];
     highlighted?: boolean;
     ctaLabel?: string;
@@ -249,7 +300,8 @@ export function PricingBlock({
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-[2rem] border p-7 ${
+              id={plan.id}
+              className={`relative scroll-mt-28 rounded-[2rem] border p-7 ${
                 plan.highlighted ? 'border-roseNude bg-roseSoft shadow-soft' : 'border-black/8 bg-cream'
               }`}
             >
@@ -263,14 +315,8 @@ export function PricingBlock({
                 <p className="mt-2 text-sm leading-6 text-black/62">{plan.description}</p>
               ) : null}
               <p className="mt-4 text-2xl font-semibold text-roseNude">{plan.price}</p>
-              <ul className="mt-6 space-y-4">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex gap-3 leading-7">
-                    <Check className="mt-1 h-5 w-5 shrink-0 text-roseNude" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              {plan.setupNote ? <p className="mt-1 text-sm font-medium text-black/55">{plan.setupNote}</p> : null}
+              <PlanFeatureList features={plan.features} />
               <Link
                 href="/lien-he"
                 className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white"
@@ -291,6 +337,107 @@ export function PricingBlock({
           ))}
         </div>
         {note && <p className="mt-8 text-center text-lg font-semibold">{note}</p>}
+      </div>
+    </section>
+  );
+}
+
+export function WebsitePricingBlock({
+  heading,
+  group,
+  note,
+}: {
+  heading?: string;
+  group: WebsiteSeoGroup;
+  note?: string;
+}) {
+  return (
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {heading && (
+          <h2 className="mx-auto max-w-3xl text-center text-3xl font-semibold leading-tight sm:text-4xl">{heading}</h2>
+        )}
+        <div className="mt-12">
+          <WebsiteSeoGroupCard group={group} />
+        </div>
+        {note && <p className="mt-8 text-center text-lg font-semibold">{note}</p>}
+      </div>
+    </section>
+  );
+}
+
+export function BangGiaPricingBlock(data: BangGiaPricingLayout) {
+  return (
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 className="mx-auto max-w-3xl text-center text-3xl font-semibold leading-tight sm:text-4xl">
+          {data.heading}
+        </h2>
+
+        <div className="mx-auto mt-10 max-w-3xl rounded-[1.75rem] border border-black/8 bg-cream p-6 sm:p-8">
+          <h3 className="text-center text-xl font-semibold sm:text-2xl">{data.painHeading}</h3>
+          <ul className="mt-6 space-y-3">
+            {data.painLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="flex flex-col gap-1 rounded-2xl border border-black/5 bg-white px-4 py-3 transition hover:border-roseNude/40 hover:bg-roseSoft/40 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                >
+                  <span className="text-base leading-7 text-ink/80">{link.pain}</span>
+                  <span className="shrink-0 text-sm font-semibold text-roseNude">→ {link.packageLabel}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {data.standalonePlans.map((plan) => (
+            <div
+              key={plan.name}
+              id={plan.id}
+              className="relative scroll-mt-28 rounded-[2rem] border border-black/8 bg-cream p-7"
+            >
+              <h3 className="text-2xl font-semibold">{plan.name}</h3>
+              <p className="mt-4 text-2xl font-semibold text-roseNude">{plan.price}</p>
+              {plan.setupNote ? <p className="mt-1 text-sm font-medium text-black/55">{plan.setupNote}</p> : null}
+              <PlanFeatureList features={plan.features} />
+              <Link
+                href="/lien-he"
+                className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white"
+              >
+                {plan.ctaLabel ?? 'Đăng ký thử 1 tháng'}
+              </Link>
+              {plan.footnote ? (
+                <p className="mt-3 text-center text-sm text-black/45">{plan.footnote}</p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6">
+          <WebsiteSeoGroupCard group={data.websiteGroup} />
+        </div>
+
+        <div
+          id={data.bundle.id}
+          className="relative mt-6 scroll-mt-28 rounded-[2rem] border border-roseNude bg-roseSoft p-7 shadow-soft sm:p-8"
+        >
+          <span className="absolute right-5 top-5 rounded-full bg-roseNude px-3 py-1 text-xs font-semibold text-ink">
+            Đủ nhất
+          </span>
+          <h3 className="pr-20 text-2xl font-semibold sm:text-3xl">{data.bundle.name}</h3>
+          <p className="mt-4 text-2xl font-semibold text-roseNude">{data.bundle.price}</p>
+          <PlanFeatureList features={data.bundle.features} />
+          <Link
+            href="/lien-he"
+            className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-roseNude px-5 py-3 font-semibold text-roseNude transition hover:bg-roseNude hover:text-white sm:w-auto"
+          >
+            {data.bundle.ctaLabel ?? 'Đăng ký thử 1 tháng'}
+          </Link>
+        </div>
+
+        {data.note && <p className="mt-8 text-center text-lg font-semibold">{data.note}</p>}
       </div>
     </section>
   );
@@ -518,11 +665,17 @@ type ServicePageData = {
   effortContrast?: Parameters<typeof EffortContrastBlock>[0];
   featureBenefit?: Parameters<typeof FeatureBenefitBlock>[0];
   monthlyValue?: Parameters<typeof MonthlyValueBlock>[0];
-  pricing?: Parameters<typeof PricingBlock>[0];
+  pricing?: Parameters<typeof PricingBlock>[0] | Parameters<typeof WebsitePricingBlock>[0];
   faq?: Parameters<typeof FaqBlock>[0];
   monthlyReport?: Parameters<typeof MonthlyReportBlock>[0];
   ctaBanner?: Parameters<typeof CtaBannerBlock>[0];
 };
+
+function isWebsitePricing(
+  pricing: NonNullable<ServicePageData['pricing']>,
+): pricing is Parameters<typeof WebsitePricingBlock>[0] {
+  return 'group' in pricing && Boolean(pricing.group);
+}
 
 export function ServicePageLayout({ data, showDemo = false }: { data: ServicePageData; showDemo?: boolean }) {
   return (
@@ -542,7 +695,12 @@ export function ServicePageLayout({ data, showDemo = false }: { data: ServicePag
       {data.featureBenefit && <FeatureBenefitBlock {...data.featureBenefit} />}
       {data.monthlyValue && <MonthlyValueBlock {...data.monthlyValue} />}
       {data.proof && <ProofBlock {...data.proof} />}
-      {data.pricing && <PricingBlock {...data.pricing} />}
+      {data.pricing &&
+        (isWebsitePricing(data.pricing) ? (
+          <WebsitePricingBlock {...data.pricing} />
+        ) : (
+          <PricingBlock {...data.pricing} />
+        ))}
       {data.faq && <FaqBlock {...data.faq} />}
       {data.monthlyReport && <MonthlyReportBlock {...data.monthlyReport} />}
       {data.ctaBanner && <CtaBannerBlock {...data.ctaBanner} />}
