@@ -147,8 +147,6 @@ export default async function Page({ params }: Props) {
         eyebrow?: string;
         heading: string;
         subheading?: string;
-        image?: string;
-        imageAlt?: string;
       };
     };
     return (
@@ -157,8 +155,6 @@ export default async function Page({ params }: Props) {
           eyebrow={contactPage.hero.eyebrow}
           title={contactPage.hero.heading}
           description={contactPage.hero.subheading}
-          image={contactPage.hero.image}
-          imageAlt={contactPage.hero.imageAlt}
         />
         <section className="bg-ink py-16 text-white sm:py-24">
           <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">

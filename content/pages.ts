@@ -513,8 +513,6 @@ export const lienHe = {
     eyebrow: 'Liên hệ',
     heading: 'Để UpMySalon check giúp tiệm anh/chị miễn phí.',
     subheading: 'Kiểm tra Google + review 15 phút. Nhắn hoặc gọi bằng tiếng Việt.',
-    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1400&q=88',
-    imageAlt: 'Đội ngũ chăm sóc khách hàng',
   },
 };
 
